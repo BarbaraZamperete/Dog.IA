@@ -1,0 +1,103 @@
+.topnavbar {
+  background-color: white;
+  height: 80px;
+
+  .logo {
+    margin: 10px;
+    width: auto;
+    /* Defina o tamanho desejado */
+    height: 60px;
+    /* Mantenha a proporção */
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  /* Centraliza verticalmente na página */
+  margin-top: clamp(10px, 8vh, 80px);
+}
+
+.card {
+  width: 400px;
+
+  .titulo{
+    margin: 0px 0 30px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  /* Define a largura do card */
+  .content {
+    display: flex;
+    flex-direction: column;
+    /* Formulário em coluna */
+    gap: 20px;
+    /* Espaçamento entre os campos do formulário */
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    /* Formulário em coluna */
+    gap: 10px;
+    /* Espaçamento entre os campos do formulário */
+
+    button {
+      align-self: flex-end;
+      /* Alinha o botão à esquerda */
+    }
+  }
+
+
+}
+
+
+/* Define a cor de fundo e da borda dos inputs */
+.mat-form-field-appearance-fill .mat-form-field-wrapper {
+  background-color: #ffffff;
+  /* Cor de fundo branca */
+  border-radius: 4px;
+  /* Borda arredondada */
+  border: 1px solid #ccc;
+  /* Borda com cor cinza */
+}
+
+/* Define a cor do texto dentro dos inputs */
+.mat-form-field-appearance-fill .mat-input-element {
+  color: #000000;
+  /* Cor do texto preta */
+}
+
+/* Define a cor do placeholder (texto de orientação quando o input está vazio) */
+.mat-form-field-appearance-fill .mat-form-field-label {
+  color: #777777;
+  /* Cor do placeholder cinza */
+}
+
+/* Define a cor do texto do rótulo (label) */
+.mat-form-field-appearance-fill .mat-form-field-label-wrapper {
+  color: #000000;
+  /* Cor do texto preta */
+}
+
+/* Define a cor do texto do rótulo quando o input está focado */
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-label-wrapper {
+  color: #000000;
+  /* Cor do texto preta */
+}
+
+
+
+.mat-horizontal-stepper {
+  overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+}
+
+@media (max-width: 600px) {
+  .mat-horizontal-stepper {
+    flex-direction: column; /* Altera para layout de coluna em telas pequenas */
+  }
+}

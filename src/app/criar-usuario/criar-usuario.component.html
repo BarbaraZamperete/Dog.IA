@@ -1,0 +1,43 @@
+<!-- <app-topnavbar></app-topnavbar> -->
+<mat-toolbar class="topnavbar" color="primary">
+  <img src="assets/dogai.png" alt="Logo" class="logo">
+</mat-toolbar>
+
+<section class="container">
+  <mat-card class="card">
+    <mat-card-header class="titulo">
+      <mat-card-title >Cadastro de Usuário</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="form">
+        <mat-form-field appearance="fill">
+          <mat-label>Nome do Tutor</mat-label>
+          <input matInput formControlName="nomeTutor" placeholder="Nome do Tutor">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="E-mail">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone" placeholder="Telefone">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="senha" placeholder="Senha">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Confirmar Senha</mat-label>
+          <input matInput type="password" formControlName="confirmarSenha" placeholder="Confirmar Senha">
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" type="submit">Criar Usuário</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
+
