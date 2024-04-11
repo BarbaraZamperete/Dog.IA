@@ -1,11 +1,11 @@
 
 .app-container {
-  min-height: calc(100vh - 300px); /* Calcula o min-height como o tamanho da viewport menos 100px */
-  /*min-height: 100vh; /* Calcula o min-height como o tamanho da viewport menos 100px */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Empurra a barra de navegação para o final da página */
-  position: relative; /* Define uma posição relativa para os elementos filhos absolutamente posicionados */
+  // min-height: calc(100vh - 300px); /* Calcula o min-height como o tamanho da viewport menos 100px */
+  // /*min-height: 100vh; /* Calcula o min-height como o tamanho da viewport menos 100px */
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between; /* Empurra a barra de navegação para o final da página */
+  // position: relative; /* Define uma posição relativa para os elementos filhos absolutamente posicionados */
 
   .footer {
     background-color: transparent;
