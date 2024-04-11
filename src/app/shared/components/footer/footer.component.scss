@@ -1,0 +1,59 @@
+
+.app-container {
+  min-height: calc(100vh - 300px); /* Calcula o min-height como o tamanho da viewport menos 100px */
+  /*min-height: 100vh; /* Calcula o min-height como o tamanho da viewport menos 100px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Empurra a barra de navegação para o final da página */
+  position: relative; /* Define uma posição relativa para os elementos filhos absolutamente posicionados */
+
+  .footer {
+    background-color: transparent;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 90px;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    // height: 100px;
+
+
+    .footer-text {
+      text-align: center; /* Centraliza o texto dentro do container */
+      // font-size: 1rem;
+      font-size: clamp(10px, 10px + 0.5vw, 26px);
+      padding: none;
+      color: #9b9a9a;
+    }
+
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: -1px; /* Posiciona a linha horizontal acima da barra de navegação */
+    left: 0;
+    right: 0;
+    height: 1px; /* Altura da linha horizontal */
+    background-color: #D9D9D9; /* Cor da linha horizontal */
+  }
+}
+
+
+// @media (max-width: 768px) {
+//   .app-container .footer {
+//     font-size: 0.8rem !important;
+//   }
+// }
+
+
+// @media (max-width: 425px) {
+//   .app-container .footer .footer-text {
+//     font-size: 0.6rem !important;
+//   }
+// }
+
