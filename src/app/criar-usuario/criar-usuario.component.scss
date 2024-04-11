@@ -9,6 +9,14 @@
     height: 60px;
     /* Mantenha a proporção */
   }
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .nav-button {
+    padding: clamp(10px, 12px + 0.5vw, 20px); /* Ajusta o espaçamento à direita dos botões */
+    font-size: clamp(13px, 12px + 0.5vw, 16px);
+  }
 }
 
 .container {
