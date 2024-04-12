@@ -1,6 +1,8 @@
 
 @use '@angular/material' as mat;
 
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
@@ -99,3 +101,9 @@ $mat-dark-theme: mat.define-dark-theme((
 
 
 @import 'reset-styles';
+
+
+body {
+  font-family: 'Quicksand';
+}
+
