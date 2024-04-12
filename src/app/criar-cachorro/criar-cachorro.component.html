@@ -2,25 +2,27 @@
 <mat-toolbar class="topnavbar" color="primary">
   <img src="assets/dogai.png" alt="Logo" class="logo">
   <span class="spacer"></span>
-  <button mat-button routerLink="/"  class="nav-button">Voltar</button>
+  <button mat-button routerLink="/cadastro/usuario" class="nav-button">
+    <span class="material-symbols-outlined">navigate_before</span>
+    Voltar
+  </button>
 </mat-toolbar>
 
 <section class="container">
   <mat-card class="card">
     <mat-card-header class="titulo">
-      <mat-card-title >Cadastro de Cachorro</mat-card-title>
+      <mat-card-title>Cadastro de Cachorro</mat-card-title>
     </mat-card-header>
     <mat-card-content class="content">
       <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form">
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Imagem 1</mat-label>
+        <div class="file-input-container">
+          <mat-label class="file-label">Imagem:</mat-label>
+          <span class="file-name">{{ selectedFileName }}</span>
           <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
-          <button mat-icon-button (click)="fileInput.click()" tabindex="-1">
-            <mat-icon>attach_file</mat-icon>
+          <button class="custom-button" mat-icon-button (click)="fileInput.click()" tabindex="-1">
+            <span class="material-symbols-outlined">image</span>
           </button>
-          <span>{{ selectedFileName }}</span>
-        </mat-form-field> -->
-
+        </div>
         <mat-form-field appearance="fill">
           <mat-label>Nome do Cachorro</mat-label>
           <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
@@ -49,5 +51,3 @@
 
 
 <app-footer></app-footer>
-
-

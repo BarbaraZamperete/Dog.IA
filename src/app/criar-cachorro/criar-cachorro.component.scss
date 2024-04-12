@@ -9,13 +9,22 @@
     height: 60px;
     /* Mantenha a proporção */
   }
+
   .spacer {
     flex: 1 1 auto;
   }
 
   .nav-button {
-    padding: clamp(10px, 12px + 0.5vw, 20px); /* Ajusta o espaçamento à direita dos botões */
+    padding: clamp(10px, 12px + 0.5vw, 20px);
+    /* Ajusta o espaçamento à direita dos botões */
     font-size: clamp(13px, 12px + 0.5vw, 16px);
+    display: flex;
+    align-items: center;
+  }
+  .nav-button .material-symbols-outlined {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 8px; /* Ajuste conforme necessário */
   }
 }
 
@@ -40,22 +49,52 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
 
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
-      button {
-        align-self: flex-end;
+        button {
+          align-self: flex-end;
+        }
+
+        .file-input-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          margin: 15px 0 10px 0;
+          padding-bottom: 5px;
+          border-bottom: 1px solid #D9D9D9;
+          ;
+
+          .file-label {
+            flex-grow: 1;
+            /* Expande para ocupar o espaço restante */
+            color: #444444;
+            font-size: 20px;
+          }
+
+          .file-name {
+            margin: 0 10px;
+            /* Margem para separar do botão */
+          }
+
+          .custom-button {
+            margin-left: auto;
+            /* Alinha o botão à direita */
+            background-color: #554596;
+            color: white;
+            // padding: 8px;
+          }
+        }
       }
     }
+
+
 
     .mat-form-field {
       width: 100%;
     }
   }
 }
-
-
