@@ -1,27 +1,33 @@
-# DogIA
+# Projeto Angular Dog.IA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+Este é um projeto Angular desenvolvido por Bárbara Zamperete como trabalho de conclusão para o curso (TCC) de Ciência da Computação na Universidade Federal de Roraima.
 
-## Development server
+## Descrição
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+(fazer)
 
-## Code scaffolding
+## Pré-requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Certifique-se de ter instalado o seguinte antes de iniciar:
 
-## Build
+- Node.js (versão 20.10.0)
+- Angular CLI (versão 17.3.4)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+1. Clone este repositório.
+2. No diretório raiz do projeto, execute o seguinte comando para instalar as dependências:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```` npm install ```
 
-## Running end-to-end tests
+## Uso
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
 
-## Further help
+`ng serve`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Acesse o aplicativo no navegador usando o URL `http://localhost:4200/`.
+
+## Licença
+
+Este projeto está licenciado sob a a licensa MIT.
