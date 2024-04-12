@@ -59,39 +59,3 @@
 }
 
 
-
-
-/* Define a cor de fundo e da borda dos inputs */
-.mat-form-field-appearance-fill .mat-form-field-wrapper {
-  background-color: #ffffff;
-  /* Cor de fundo branca */
-  border-radius: 4px;
-  /* Borda arredondada */
-  border: 1px solid #ccc;
-  /* Borda com cor cinza */
-}
-
-/* Define a cor do texto dentro dos inputs */
-.mat-form-field-appearance-fill .mat-input-element {
-  color: #000000;
-  /* Cor do texto preta */
-}
-
-/* Define a cor do placeholder (texto de orientação quando o input está vazio) */
-.mat-form-field-appearance-fill .mat-form-field-label {
-  color: #777777;
-  /* Cor do placeholder cinza */
-}
-
-/* Define a cor do texto do rótulo (label) */
-.mat-form-field-appearance-fill .mat-form-field-label-wrapper {
-  color: #000000;
-  /* Cor do texto preta */
-}
-
-/* Define a cor do texto do rótulo quando o input está focado */
-.mat-form-field-appearance-fill.mat-focused .mat-form-field-label-wrapper {
-  color: #000000;
-  /* Cor do texto preta */
-}
-
