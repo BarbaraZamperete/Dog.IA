@@ -14,7 +14,7 @@ export class TopnavbarComponent {
   constructor(private router: Router) { }
 
 
-  onClick(){
-    this.router.navigate([this.voltar]);
+  onClick(rota = this.voltar){
+    this.router.navigate([rota]);
   }
 }
