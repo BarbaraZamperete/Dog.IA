@@ -1,1 +1,28 @@
-<p>login works!</p>
+<app-topnavbar [logo]="true" [voltar]="'/'"></app-topnavbar>
+
+
+<section class="container">
+  <mat-card class="card">
+    <div class="imagem-box"><img src="assets/dogai.png" alt=""></div>
+    <mat-card-header class="titulo">
+      <mat-card-title >Login de Usuário</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="E-mail">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="senha" placeholder="Senha">
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" type="submit">Entrar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
+
+<app-footer></app-footer>
