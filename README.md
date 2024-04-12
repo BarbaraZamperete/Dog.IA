@@ -18,13 +18,11 @@ Certifique-se de ter instalado o seguinte antes de iniciar:
 1. Clone este repositório.
 2. No diretório raiz do projeto, execute o seguinte comando para instalar as dependências:
 
-```` npm install ```
+``` npm install ```
 
 ## Uso
 
-Para iniciar o servidor de desenvolvimento, execute o seguinte comando:
-
-`ng serve`
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando: `ng serve`
 
 Acesse o aplicativo no navegador usando o URL `http://localhost:4200/`.
 
