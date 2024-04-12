@@ -85,7 +85,13 @@
             /* Alinha o botão à direita */
             background-color: #554596;
             color: white;
-            // padding: 8px;
+            height: 40px;
+            width: 40px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
           }
         }
       }

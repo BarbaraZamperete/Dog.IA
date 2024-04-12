@@ -8,6 +8,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CriarCachorroComponent {
 
+  racas = [
+    {nome: 'Sem raça definida - SRD', id: 1},
+    {nome: 'Poodle', id: 2},
+    {nome: 'Pitbul', id: 3}
+  ]
+
   cachorroForm!: FormGroup;
   selectedFileName: string | null = null;
   constructor(private fb: FormBuilder) { }

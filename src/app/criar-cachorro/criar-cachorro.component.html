@@ -23,23 +23,25 @@
             <span class="material-symbols-outlined">image</span>
           </button>
         </div>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Nome do Cachorro</mat-label>
           <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
           <mat-label>Raça</mat-label>
-          <input matInput formControlName="raca" placeholder="Raça">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-label>Gênero</mat-label>
-          <mat-select formControlName="genero" placeholder="Gênero">
-            <mat-option value="macho">Macho</mat-option>
-            <mat-option value="femea">Fêmea</mat-option>
+          <mat-select matInput formControlName="raca" placeholder="Raça">
+            <mat-option *ngFor="let raca of racas" [value]="raca.id">{{ raca.nome }}</mat-option>
           </mat-select>
         </mat-form-field>
+
+        <div class="file-input-container">
+          <mat-label class="file-label">Gênero: </mat-label>
+          <mat-radio-group formControlName="genero">
+            <mat-radio-button value="macho">Macho</mat-radio-button>
+            <mat-radio-button value="femea">Fêmea</mat-radio-button>
+          </mat-radio-group>
+        </div>
 
         <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
       </form>
