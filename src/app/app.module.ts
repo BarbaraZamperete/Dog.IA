@@ -9,13 +9,15 @@ import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarCachorroComponent } from './criar-cachorro/criar-cachorro.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CriarUsuarioComponent,
-    CriarCachorroComponent
+    CriarCachorroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
