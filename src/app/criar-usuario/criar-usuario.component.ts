@@ -10,12 +10,6 @@ export class CriarUsuarioComponent {
 
   usuarioForm!: FormGroup;
 
-  firstFormGroup = this.fb.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this.fb.group({
-    secondCtrl: ['', Validators.required],
-  });
   isEditable = false;
   constructor(private fb: FormBuilder) { }
 

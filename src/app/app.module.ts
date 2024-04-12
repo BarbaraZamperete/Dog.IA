@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CriarCachorroComponent } from './criar-cachorro/criar-cachorro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CriarUsuarioComponent
+    CriarUsuarioComponent,
+    CriarCachorroComponent
   ],
   imports: [
     BrowserModule,

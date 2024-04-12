@@ -1,0 +1,53 @@
+<!-- <app-topnavbar></app-topnavbar> -->
+<mat-toolbar class="topnavbar" color="primary">
+  <img src="assets/dogai.png" alt="Logo" class="logo">
+  <span class="spacer"></span>
+  <button mat-button routerLink="/"  class="nav-button">Voltar</button>
+</mat-toolbar>
+
+<section class="container">
+  <mat-card class="card">
+    <mat-card-header class="titulo">
+      <mat-card-title >Cadastro de Cachorro</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form">
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Imagem 1</mat-label>
+          <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
+          <button mat-icon-button (click)="fileInput.click()" tabindex="-1">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+          <span>{{ selectedFileName }}</span>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Nome do Cachorro</mat-label>
+          <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Raça</mat-label>
+          <input matInput formControlName="raca" placeholder="Raça">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Gênero</mat-label>
+          <mat-select formControlName="genero" placeholder="Gênero">
+            <mat-option value="macho">Macho</mat-option>
+            <mat-option value="femea">Fêmea</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
+      </form>
+    </mat-card-content>
+
+
+  </mat-card>
+</section>
+
+
+<app-footer></app-footer>
+
+
