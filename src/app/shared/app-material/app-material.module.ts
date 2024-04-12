@@ -20,6 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
@@ -45,7 +47,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatMenuModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatGridListModule
   ]
 })
 export class AppMaterialModule { }
