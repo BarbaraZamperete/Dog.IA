@@ -1,11 +1,13 @@
-.topnavbar{
+.topnavbar {
   background-color: white;
   height: 80px;
 
   .logo {
     margin: 10px;
-    width: auto; /* Defina o tamanho desejado */
-    height: 60px; /* Mantenha a proporção */
+    width: auto;
+    /* Defina o tamanho desejado */
+    height: 60px;
+    /* Mantenha a proporção */
   }
 
   .spacer {
@@ -13,42 +15,37 @@
   }
 
   .nav-button {
-    padding: clamp(10px, 12px + 0.5vw, 20px); /* Ajusta o espaçamento à direita dos botões */
+    padding: clamp(10px, 12px + 0.5vw, 20px);
+    /* Ajusta o espaçamento à direita dos botões */
     font-size: clamp(13px, 12px + 0.5vw, 16px);
   }
 
-  .nav-button::after {
+  .nav-button.voltar {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-button.voltar .material-symbols-outlined {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 8px;
+    /* Ajuste conforme necessário */
+  }
+
+  .nav-button.menu::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
-    width: 1px; /* Largura da barra vertical */
-    background-color: #D9D9D9; /* Cor da barra vertical */
+    width: 1px;
+    /* Largura da barra vertical */
+    background-color: #D9D9D9;
+    /* Cor da barra vertical */
   }
 
   /* Remove a barra vertical do último botão */
-  .nav-button:last-child::after {
+  .nav-button.menu:last-child::after {
     display: none;
   }
 }
-
-// @media (max-width: 768px) {
-//   .topnavbar .nav-button {
-//     font-size: 1rem !important;
-//     padding: 10px; /* Ajusta o espaçamento à direita dos botões */
-//   }
-// }
-
-
-// @media (max-width: 425px) {
-//   .topnavbar .nav-button {
-//     font-size: 0.8rem !important;
-//     padding: 10px; /* Ajusta o espaçamento à direita dos botões */
-//   }
-// }
-
-
-
-
-

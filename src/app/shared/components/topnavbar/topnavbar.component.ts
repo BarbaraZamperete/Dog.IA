@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topnavbar',
@@ -7,9 +8,13 @@ import { Component } from '@angular/core';
 })
 export class TopnavbarComponent {
 
-  showMenu = false;
+  @Input() logo: boolean = false;
+  @Input() voltar: string = '/';
 
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
+  constructor(private router: Router) { }
+
+
+  onClick(){
+    this.router.navigate([this.voltar]);
   }
 }

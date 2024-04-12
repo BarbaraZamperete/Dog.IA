@@ -1,8 +1,17 @@
 
-<mat-toolbar class="topnavbar" color="primary">
+<mat-toolbar *ngIf="!logo" class="topnavbar" color="primary">
   <!-- <img src="assets/dogai.png" alt="Logo" class="logo"> -->
   <span class="spacer"></span>
-  <button mat-button routerLink="/sobre"  class="nav-button custom-text-color">Sobre</button>
-  <button mat-button routerLink="/cachorros"  class="nav-button custom-text-color">Cachorros</button>
-  <button mat-button routerLink="/entrar"  class="nav-button custom-text-color">Entrar</button>
+  <button mat-button routerLink="/sobre"  class="nav-button menu custom-text-color">Sobre</button>
+  <button mat-button routerLink="/cachorros"  class="nav-button menu custom-text-color">Cachorros</button>
+  <button mat-button routerLink="/login"  class="nav-button menu custom-text-color">Entrar</button>
+</mat-toolbar>
+
+<mat-toolbar *ngIf="logo" class="topnavbar" color="primary">
+  <img src="assets/dogai.png" alt="Logo" class="logo">
+  <span class="spacer"></span>
+  <button mat-button (click)="onClick()"  class="nav-button voltar">
+    <span class="material-symbols-outlined">navigate_before</span>
+    Voltar
+  </button>
 </mat-toolbar>
