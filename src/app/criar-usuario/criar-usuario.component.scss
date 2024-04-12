@@ -14,8 +14,16 @@
   }
 
   .nav-button {
-    padding: clamp(10px, 12px + 0.5vw, 20px); /* Ajusta o espaçamento à direita dos botões */
+    padding: clamp(10px, 12px + 0.5vw, 20px);
+    /* Ajusta o espaçamento à direita dos botões */
     font-size: clamp(13px, 12px + 0.5vw, 16px);
+    display: flex;
+    align-items: center;
+  }
+  .nav-button .material-symbols-outlined {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 8px; /* Ajuste conforme necessário */
   }
 }
 
