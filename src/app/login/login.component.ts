@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -20,18 +22,22 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
-      // Aqui você pode implementar a lógica para autenticar o usuário
       const email = this.loginForm.value.email;
       const senha = this.loginForm.value.senha;
-      console.log('Email:', email);
-      console.log('Senha:', senha);
 
-      // Após a autenticação bem-sucedida, você pode redirecionar para a próxima página
-      this.router.navigate(['/']);
+      // Chamando o método login do AuthService
+      this.authService.login(email, senha).subscribe((loggedIn: boolean) => {
+        if (loggedIn) {
+          // Redirecionando para a página principal após o login
+          this.router.navigate(['/']);
+        } else {
+          // Exibir mensagem de erro de autenticação
+          console.log('Email ou senha incorretos');
+        }
+      });
     } else {
-      // Se o formulário não for válido, você pode adicionar lógica para lidar com isso, como exibir mensagens de erro
       console.log('Formulário inválido');
     }
   }
