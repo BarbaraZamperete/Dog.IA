@@ -1,17 +1,22 @@
 
-<mat-toolbar *ngIf="!logo" class="topnavbar header" color="primary">
-  <!-- <img src="assets/dogai.png" alt="Logo" class="logo"> -->
-  <span class="spacer"></span>
-  <button mat-button (click)="onClick('/sobre')"  class="nav-button menu custom-text-color">Sobre</button>
-  <button mat-button (click)="onClick('/cachorros')"  class="nav-button menu custom-text-color">Cachorros</button>
-  <button mat-button (click)="onClick('/login')"  class="nav-button menu custom-text-color">Entrar</button>
-</mat-toolbar>
+<section *ngIf="!logo" class="header">
+  <mat-toolbar class="topnavbar header" color="primary">
+    <!-- <img src="assets/dogai.png" alt="Logo" class="logo"> -->
+    <span class="spacer"></span>
+    <button mat-button (click)="onClick('/sobre')"  class="nav-button menu custom-text-color">Sobre</button>
+    <button mat-button (click)="onClick('/cachorros')"  class="nav-button menu custom-text-color">Cachorros</button>
+    <button mat-button (click)="onClick('/login')"  class="nav-button menu custom-text-color">Entrar</button>
+  </mat-toolbar>
+</section>
 
-<mat-toolbar *ngIf="logo" class="topnavbar" color="primary">
-  <img src="assets/dogai.png" alt="Logo" class="logo">
-  <span class="spacer"></span>
-  <button mat-button (click)="onClick()"  class="nav-button voltar">
-    <span class="material-symbols-outlined">navigate_before</span>
-    Voltar
-  </button>
-</mat-toolbar>
+<section *ngIf="logo" class="header">
+  <mat-toolbar  class="topnavbar" color="primary">
+    <img src="assets/dogai.png" alt="Logo" class="logo">
+    <span class="spacer"></span>
+    <button mat-button (click)="onClick()"  class="nav-button voltar">
+      <span class="material-symbols-outlined">navigate_before</span>
+      Voltar
+    </button>
+  </mat-toolbar>
+</section>
+
