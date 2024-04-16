@@ -31,7 +31,7 @@ export class LoginComponent {
       this.authService.login(email, senha).subscribe((loggedIn: boolean) => {
         if (loggedIn) {
           // Redirecionando para a página principal após o login
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         } else {
           // Exibir mensagem de erro de autenticação
           console.log('Email ou senha incorretos');
