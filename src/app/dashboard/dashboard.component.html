@@ -1,35 +1,34 @@
-<app-topnavbar [logo]="true" [voltar]="'/'"></app-topnavbar>
-
-
-<section class="container">
-  <mat-card class="card">
-    <mat-card-header class="titulo-box">
-      <mat-card-title class="titulo">Oi, Usuário</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="content">
-      <section class="cachorros-lista">
-        <div class="cachorros-lista-titulo">
-          Meus cachorros perdidos
-        </div>
-        <div class="container-cachorro">
-          <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
-            <mat-card-header>
-              <mat-card-title>#234</mat-card-title>
-            </mat-card-header>
-            <div class="imagem-box">
-              <img matCardImage src="assets/Ativo 1.png">
-            </div>
-            <mat-card-content>
-              Text content
-            </mat-card-content>
-            <mat-card-actions align="end">
-              <button mat-button>Ver resultados</button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-      </section>
-    </mat-card-content>
-  </mat-card>
+<section class="big">
+  <app-topnavbar [logo]="true" [voltar]="'/'"></app-topnavbar>
+  <section class="main-container">
+    <mat-card class="card">
+      <mat-card-header class="titulo-box">
+        <mat-card-title class="titulo">Oi, Usuário</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <section class="cachorros-lista">
+          <div class="cachorros-lista-titulo">
+            Meus cachorros perdidos
+          </div>
+          <div class="container-cachorro">
+            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
+              <mat-card-header>
+                <mat-card-title>#234</mat-card-title>
+              </mat-card-header>
+              <div class="imagem-box">
+                <img matCardImage src="assets/Ativo 1.png">
+              </div>
+              <mat-card-content>
+                Text content
+              </mat-card-content>
+              <mat-card-actions align="end">
+                <button mat-button>Ver resultados</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  <app-footer></app-footer>
 </section>
-
-<app-footer></app-footer>

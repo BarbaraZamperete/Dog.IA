@@ -1,77 +1,68 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: clamp(10px, 8vh, 80px);
+.card {
+  width: 80%;
+  max-width: 400px;
 
-  .card {
-    width: 80%;
-    max-width: 400px;
+  .titulo {
+    margin: 0px 0 30px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .titulo {
-      margin: 0px 0 30px 0;
-      text-align: center;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-    .content {
+    .form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
 
-      .form {
+      button {
+        align-self: flex-end;
+      }
+
+      .file-input-container {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        margin: 15px 0 10px 0;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #D9D9D9;
+        ;
 
-        button {
-          align-self: flex-end;
+        .file-label {
+          flex-grow: 1;
+          /* Expande para ocupar o espaço restante */
+          color: #444444;
+          font-size: 20px;
         }
 
-        .file-input-container {
-          width: 100%;
+        .file-name {
+          margin: 0 10px;
+          /* Margem para separar do botão */
+        }
+
+        .custom-button {
+          margin-left: auto;
+          /* Alinha o botão à direita */
+          background-color: #554596;
+          color: white;
+          height: 40px;
+          width: 40px;
+          padding: 0;
           display: flex;
+          justify-content: center;
           align-items: center;
-          margin: 15px 0 10px 0;
-          padding-bottom: 5px;
-          border-bottom: 1px solid #D9D9D9;
-          ;
 
-          .file-label {
-            flex-grow: 1;
-            /* Expande para ocupar o espaço restante */
-            color: #444444;
-            font-size: 20px;
-          }
-
-          .file-name {
-            margin: 0 10px;
-            /* Margem para separar do botão */
-          }
-
-          .custom-button {
-            margin-left: auto;
-            /* Alinha o botão à direita */
-            background-color: #554596;
-            color: white;
-            height: 40px;
-            width: 40px;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-          }
         }
       }
     }
+  }
 
-
-
-    .mat-form-field {
-      width: 100%;
-    }
+  .mat-form-field {
+    width: 100%;
   }
 }

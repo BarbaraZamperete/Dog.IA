@@ -1,47 +1,45 @@
-<app-topnavbar [logo]="true" [voltar]="'/cadastro/usuario'"></app-topnavbar>
+<section class="big">
+  <app-topnavbar [logo]="true" [voltar]="'/cadastro/usuario'"></app-topnavbar>
 
-<section class="container">
-  <mat-card class="card">
-    <mat-card-header class="titulo">
-      <mat-card-title>Cadastro de Cachorro</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="content">
-      <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form">
-        <div class="file-input-container">
-          <mat-label class="file-label">Imagem:</mat-label>
-          <span class="file-name">{{ selectedFileName }}</span>
-          <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
-          <button class="custom-button" mat-icon-button (click)="fileInput.click()" tabindex="-1">
-            <span class="material-symbols-outlined">image</span>
-          </button>
-        </div>
-        <mat-form-field appearance="outline">
-          <mat-label>Nome do Cachorro</mat-label>
-          <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
-        </mat-form-field>
+  <section class="main-container">
+    <mat-card class="card">
+      <mat-card-header class="titulo">
+        <mat-card-title>Cadastro de Cachorro</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form">
+          <div class="file-input-container">
+            <mat-label class="file-label">Imagem:</mat-label>
+            <span class="file-name">{{ selectedFileName }}</span>
+            <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
+            <button class="custom-button" mat-icon-button (click)="fileInput.click()" tabindex="-1">
+              <span class="material-symbols-outlined">image</span>
+            </button>
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Nome do Cachorro</mat-label>
+            <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Raça</mat-label>
-          <mat-select matInput formControlName="raca" placeholder="Raça">
-            <mat-option *ngFor="let raca of racas" [value]="raca.id">{{ raca.nome }}</mat-option>
-          </mat-select>
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Raça</mat-label>
+            <mat-select matInput formControlName="raca" placeholder="Raça">
+              <mat-option *ngFor="let raca of racas" [value]="raca.id">{{ raca.nome }}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <div class="file-input-container">
-          <mat-label class="file-label">Gênero: </mat-label>
-          <mat-radio-group formControlName="genero">
-            <mat-radio-button value="macho">Macho</mat-radio-button>
-            <mat-radio-button value="femea">Fêmea</mat-radio-button>
-          </mat-radio-group>
-        </div>
+          <div class="file-input-container">
+            <mat-label class="file-label">Gênero: </mat-label>
+            <mat-radio-group formControlName="genero">
+              <mat-radio-button value="macho">Macho</mat-radio-button>
+              <mat-radio-button value="femea">Fêmea</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
-        <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
-      </form>
-    </mat-card-content>
-
-
-  </mat-card>
+          <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  <app-footer></app-footer>
 </section>
-
-
-<app-footer></app-footer>

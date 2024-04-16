@@ -1,42 +1,41 @@
-<app-topnavbar [logo]="true" [voltar]="'/'"></app-topnavbar>
+<section class="big">
+  <app-topnavbar [logo]="true" [voltar]="'/'"></app-topnavbar>
+  <section class="main-container">
+    <mat-card class="card">
+      <mat-card-header class="titulo">
+        <mat-card-title>Cadastro de Usuário</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+        <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="form">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome do Tutor</mat-label>
+            <input matInput formControlName="nomeTutor" placeholder="Nome do Tutor">
+          </mat-form-field>
 
-<section class="container">
-  <mat-card class="card">
-    <mat-card-header class="titulo">
-      <mat-card-title >Cadastro de Usuário</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="content">
-      <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="form">
-        <mat-form-field appearance="outline">
-          <mat-label>Nome do Tutor</mat-label>
-          <input matInput formControlName="nomeTutor" placeholder="Nome do Tutor">
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="E-mail">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>E-mail</mat-label>
-          <input matInput type="email" formControlName="email" placeholder="E-mail">
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="telefone" placeholder="Telefone">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Telefone</mat-label>
-          <input matInput formControlName="telefone" placeholder="Telefone">
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" placeholder="Senha">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Senha</mat-label>
-          <input matInput type="password" formControlName="senha" placeholder="Senha">
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmar Senha</mat-label>
+            <input matInput type="password" formControlName="confirmarSenha" placeholder="Confirmar Senha">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Confirmar Senha</mat-label>
-          <input matInput type="password" formControlName="confirmarSenha" placeholder="Confirmar Senha">
-        </mat-form-field>
-
-        <button mat-raised-button color="accent" type="submit">Próximo</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+          <button mat-raised-button color="accent" type="submit">Próximo</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  <app-footer></app-footer>
 </section>
-
-<app-footer></app-footer>
-

@@ -1,8 +1,12 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: clamp(10px, 8vh, 80px);
+// .main-container {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   margin: auto;
+//   margin-top: clamp(10px, 8vh, 80px);
+//   align-items: center;
+//   width: 80%;
+//   max-width: 500px;
 
   .card {
     width: 80%;
@@ -36,7 +40,4 @@
       width: 100%;
     }
   }
-}
-
-
-
+// }
