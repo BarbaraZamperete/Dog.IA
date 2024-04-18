@@ -79,8 +79,8 @@ $mat-dark-theme: mat.define-dark-theme((color: (primary: $mat-dark-theme-primary
 }
 
 
-@import 'reset-styles';
-@import 'color';
+@import './assets/reset-styles.scss';
+@import './assets/color.scss';
 
 
 body {
