@@ -10,16 +10,16 @@
           <div class="cachorros-lista-titulo">
             Meus cachorros perdidos
           </div>
-          <div class="container-cachorro">
+          <div *ngIf="cachorros$ | async as cachorros" class="container-cachorro">
             <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
               <mat-card-header>
-                <mat-card-title>#234</mat-card-title>
+                <mat-card-title>#{{cachorro.id}}</mat-card-title>
               </mat-card-header>
               <div class="imagem-box">
-                <img matCardImage src="assets/Ativo 1.png">
+                <img matCardImage src="http://localhost:8000/media/d93415e7.jpg">
               </div>
               <mat-card-content>
-                Text content
+                {{cachorro.nome}}
               </mat-card-content>
               <mat-card-actions align="end">
                 <button mat-button>Ver resultados</button>

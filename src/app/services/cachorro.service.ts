@@ -18,7 +18,7 @@ export class CachorroService {
         console.log(cachorro);
         const imagemObj = new FormData()
         imagemObj.append('cachorro', cachorro.id)
-        imagemObj.append('caminho',imagem)
+        imagemObj.append('caminho', imagem)
         return this.http.post(`${this.apiUrl}/imagens/adicionar/`, imagemObj).pipe(
           catchError((error: any) => {
             console.error('Erro na requisição postImagem:', error);
@@ -31,5 +31,19 @@ export class CachorroService {
         return throwError(error);
       })
     );
+  }
+
+
+  getAllCachorrosByUser(usuario_id: number) {
+    return this.http.get(`${this.apiUrl}/cachorros/`)
+      .pipe(
+        // map((response: any) => {
+        //   // response as Cachorro[]
+        //   response.filter((cachorro: any) => cachorro.usuario == usuario_id)
+        // }),
+        catchError((error: any) => {
+          console.error('Erro na requisição getCachorros:', error);
+          return throwError(error);
+        }))
   }
 }
