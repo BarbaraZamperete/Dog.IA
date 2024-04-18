@@ -7,7 +7,7 @@
         <mat-card-title>Cadastro de Cachorro</mat-card-title>
       </mat-card-header>
       <mat-card-content class="content">
-        <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form">
+        <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">
           <div class="file-input-container">
             <mat-label class="file-label">Imagem:</mat-label>
             <span class="file-name">{{ selectedFileName }}</span>
@@ -18,7 +18,7 @@
           </div>
           <mat-form-field appearance="outline">
             <mat-label>Nome do Cachorro</mat-label>
-            <input matInput formControlName="nomeCachorro" placeholder="Nome do Cachorro">
+            <input matInput formControlName="nome" placeholder="Nome do Cachorro">
           </mat-form-field>
 
           <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
@@ -31,8 +31,8 @@
           <div class="file-input-container">
             <mat-label class="file-label">Gênero: </mat-label>
             <mat-radio-group formControlName="genero">
-              <mat-radio-button value="macho">Macho</mat-radio-button>
-              <mat-radio-button value="femea">Fêmea</mat-radio-button>
+              <mat-radio-button value="1">Macho</mat-radio-button>
+              <mat-radio-button value="2">Fêmea</mat-radio-button>
             </mat-radio-group>
           </div>
 

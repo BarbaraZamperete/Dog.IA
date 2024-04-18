@@ -3,7 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RacaService } from '../services/raca.service';
 import { Raca } from '../interfaces/raca.interface';
 import { Observable, map } from 'rxjs';
-import { response } from 'express';
+import { CachorroService } from '../services/cachorro.service';
+import { Cachorro } from '../interfaces/cachorro';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-cachorro',
@@ -20,15 +22,21 @@ export class CriarCachorroComponent {
 
   cachorroForm!: FormGroup;
   selectedFileName: string | null = null;
+  file: File
   racas$: Observable<Raca[]>;
 
-  constructor(private fb: FormBuilder, private racaService: RacaService) {
+  constructor(
+    private fb: FormBuilder,
+    private racaService: RacaService,
+    private cachorroService: CachorroService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
 
     this.cachorroForm = this.fb.group({
-      nomeCachorro: ['', Validators.required],
+      nome: ['', Validators.required],
       raca: ['', Validators.required],
       genero: ['', Validators.required]
     });
@@ -43,20 +51,37 @@ export class CriarCachorroComponent {
 
   onFileSelected(input: HTMLInputElement | null) {
     if (input && input.files && input.files.length > 0) {
-      const file: File = input.files[0];
-      this.selectedFileName = file.name;
+      this.file = input.files[0];
+      this.selectedFileName = this.file.name;
     } else {
       this.selectedFileName = null;
     }
   }
 
   onSubmit() {
-    if (this.cachorroForm.valid && this.selectedFileName) {
-      const formData = new FormData();
-      formData.append('imagem', this.selectedFileName);
+    if (this.cachorroForm.valid && this.file) {
+      const cachorroObj = {
+        nome: this.cachorroForm.get('nome')?.value || '',
+        raca: +this.cachorroForm.get('raca')?.value || 1,
+        genero: +this.cachorroForm.get('genero')?.value || 1,
+        usuario: 1
+      }
+      this.createCachorro(cachorroObj)
     } else {
       console.log('Formulário inválido ou arquivo não selecionado');
     }
+  }
+
+  createCachorro(cachorroObj: Cachorro): void {
+    this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
+      (response) => {
+        console.log('Resposta da requisição POST:', response);
+        this.router.navigate(['/cadastro/cachorro']);
+      },
+      (error) => {
+        console.error('Erro na requisição POST:', error);
+      }
+    );
   }
 
 }
