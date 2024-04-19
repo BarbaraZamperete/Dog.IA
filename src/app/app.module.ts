@@ -12,6 +12,7 @@ import { CriarCachorroComponent } from './criar-cachorro/criar-cachorro.componen
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     CriarUsuarioComponent,
     CriarCachorroComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,

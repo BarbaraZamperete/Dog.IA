@@ -44,28 +44,6 @@
       gap: 30px;
       // justify-content: space-between;
 
-      .cachorro {
-        width: 300px;
-        border: 0.5px solid $dark-white;
-        border-color: $white-gray !important;
-        box-shadow: none !important;
-        /* Aumenta a sombra */
-
-        .imagem-box {
-          overflow: hidden;
-          margin-bottom: 20px;
-          width: 90%;
-          height: 200px;
-          display: flex;
-          padding: 10px;
-          justify-content: center;
-          margin: auto;
-
-          img {
-            max-height: 100%;
-          }
-        }
-      }
     }
   }
 }

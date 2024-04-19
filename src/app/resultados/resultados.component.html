@@ -11,20 +11,7 @@
 
         <section *ngIf="cachorros$ as cachorros" class="cachorros-lista">
           <div class="container-cachorro">
-            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
-              <mat-card-header>
-                <mat-card-title>#{{cachorro.id}}</mat-card-title>
-              </mat-card-header>
-              <div class="imagem-box">
-                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
-              </div>
-              <mat-card-content>
-                {{cachorro.nome}}
-              </mat-card-content>
-              <mat-card-actions align="end">
-                <button (click)="onContactar(cachorro.id)" mat-button>Contactar</button>
-              </mat-card-actions>
-            </mat-card>
+            <app-card-cachorro [cachorros]="cachorros" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
           </div>
         </section>
 

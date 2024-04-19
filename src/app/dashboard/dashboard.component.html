@@ -11,44 +11,16 @@
           <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
             Meus cachorros perdidos
           </div>
-          <div class="container-cachorro">
-            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
-              <mat-card-header>
-                <mat-card-title>#{{cachorro.id}}</mat-card-title>
-              </mat-card-header>
-              <div class="imagem-box">
-                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
-              </div>
-              <mat-card-content>
-                {{cachorro.nome}}
-              </mat-card-content>
-              <mat-card-actions align="end">
-                <button (click)="verResultados(cachorro.id)" mat-button>Ver resultados</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
+          <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
+            [botaoNome]="'Resultados'"></app-card-cachorro>
         </section>
 
         <section *ngIf="cachorrosAvistados$ | async as cachorros" class="cachorros-lista">
           <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
             Meus cachorros avistados {{cachorros}}
           </div>
-          <div class="container-cachorro">
-            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
-              <mat-card-header>
-                <mat-card-title>#{{cachorro.id}}</mat-card-title>
-              </mat-card-header>
-              <div class="imagem-box">
-                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
-              </div>
-              <mat-card-content>
-                {{cachorro.nome}}
-              </mat-card-content>
-              <mat-card-actions align="end">
-                <button (click)="verResultados(cachorro.id)" mat-button>Ver resultados</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
+          <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
+            [botaoNome]="'Resultados'"></app-card-cachorro>
         </section>
 
       </mat-card-content>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resultados',
@@ -13,6 +14,7 @@ export class ResultadosComponent {
   ]
 
   cachorroId: string | null = ''
+  @Output() eventoContato = new EventEmitter<any>()
 
   constructor(
     private routerActive: ActivatedRoute
@@ -20,9 +22,4 @@ export class ResultadosComponent {
     this.cachorroId = routerActive.snapshot.paramMap.get('id')
   }
 
-
-
-  onContactar(id: number){
-
-  }
 }

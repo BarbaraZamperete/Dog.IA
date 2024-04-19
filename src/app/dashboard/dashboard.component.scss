@@ -1,5 +1,6 @@
 @import '../../assets/color.scss';
 
+
 .card {
   width: calc(100vw - 4rem);
   max-width: 1000px;
@@ -36,39 +37,5 @@
         font-size: clamp(13px, 12px + 0.5vw, 20px);
       }
     }
-
-
-    .container-cachorro {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      // justify-content: space-between;
-
-      .cachorro {
-        width: 300px;
-        border: 0.5px solid $dark-white;
-        border-color: $white-gray !important;
-        box-shadow: none !important; /* Aumenta a sombra */
-
-        .imagem-box {
-          overflow: hidden;
-          margin-bottom: 20px;
-          width: 90%;
-          height: 200px;
-          display: flex;
-          padding: 10px;
-          justify-content: center;
-          margin: auto;
-
-          img {
-            max-height: 100%;
-          }
-        }
-      }
-    }
-
-
   }
-
 }
