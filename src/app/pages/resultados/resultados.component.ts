@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resultados',
@@ -14,7 +13,6 @@ export class ResultadosComponent {
   ]
 
   cachorroId: string | null = ''
-  @Output() eventoContato = new EventEmitter<any>()
 
   constructor(
     private routerActive: ActivatedRoute

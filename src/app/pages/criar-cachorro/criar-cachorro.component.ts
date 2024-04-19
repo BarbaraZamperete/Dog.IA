@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { RacaService } from '../services/raca.service';
-import { Raca } from '../interfaces/raca.interface';
+import { RacaService } from '../../services/raca.service';
+import { Raca } from '../../interfaces/raca.interface';
 import { Observable, map } from 'rxjs';
-import { CachorroService } from '../services/cachorro.service';
-import { Cachorro } from '../interfaces/cachorro';
+import { CachorroService } from '../../services/cachorro.service';
+import { Cachorro } from '../../interfaces/cachorro';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CachorroService } from '../services/cachorro.service';
+import { CachorroService } from '../../services/cachorro.service';
 
 @Component({
   selector: 'app-dashboard',

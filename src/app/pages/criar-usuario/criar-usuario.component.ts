@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../services/usuario.service';
-import { Usuario } from '../interfaces/usuario.interface';
+import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-criar-usuario',
