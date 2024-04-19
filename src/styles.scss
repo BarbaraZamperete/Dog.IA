@@ -85,6 +85,7 @@ $mat-dark-theme: mat.define-dark-theme((color: (primary: $mat-dark-theme-primary
 
 body {
   font-family: 'Quicksand';
+  background-color: $dark-white;
 }
 
 .big{
@@ -103,4 +104,14 @@ body {
   align-items: center;
   width: 80%;
   max-width: 500px;
+}
+
+
+.mat-mdc-card {
+  border-radius: 6px !important;
+  // background-color: var(--mdc-elevated-card-container-color);
+  // border-width: 0;
+  // border-style: solid;
+  border-color: $white-gray !important;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2) !important; /* Aumenta a sombra */
 }

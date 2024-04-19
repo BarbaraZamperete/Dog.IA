@@ -47,6 +47,9 @@
 
       .cachorro {
         width: 300px;
+        border: 0.5px solid $dark-white;
+        border-color: $white-gray !important;
+        box-shadow: none !important; /* Aumenta a sombra */
 
         .imagem-box {
           overflow: hidden;
