@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CachorroService } from '../services/cachorro.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,8 @@ export class DashboardComponent {
   cachorrosAvistados$: Observable<any>
 
   constructor(
-    private cachorroService: CachorroService
+    private cachorroService: CachorroService,
+    private router: Router
   ){
     this.getCachorrosServidor()
   }
@@ -28,6 +30,10 @@ export class DashboardComponent {
   getCachorrosServidor(){
     this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser(1)
     this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser(1)
+  }
+
+  verResultados(id: number){
+    this.router.navigate(['resultados', id])
   }
 
 }

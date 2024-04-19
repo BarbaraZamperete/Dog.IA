@@ -1,0 +1,37 @@
+<div class="big">
+  <app-topnavbar [logo]="true" [voltar]="'dashboard'"></app-topnavbar>
+
+  <section class="main-container">
+
+    <mat-card class="card">
+      <mat-card-header class="titulo-box">
+        <mat-card-title class="titulo">Resultados para #{{cachorroId}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="content">
+
+        <section *ngIf="cachorros$ as cachorros" class="cachorros-lista">
+          <div class="container-cachorro">
+            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
+              <mat-card-header>
+                <mat-card-title>#{{cachorro.id}}</mat-card-title>
+              </mat-card-header>
+              <div class="imagem-box">
+                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
+              </div>
+              <mat-card-content>
+                {{cachorro.nome}}
+              </mat-card-content>
+              <mat-card-actions align="end">
+                <button (click)="onContactar(cachorro.id)" mat-button>Contactar</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </section>
+
+      </mat-card-content>
+    </mat-card>
+
+
+  </section>
+  <app-footer></app-footer>
+</div>

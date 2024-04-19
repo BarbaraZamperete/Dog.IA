@@ -23,7 +23,7 @@
                 {{cachorro.nome}}
               </mat-card-content>
               <mat-card-actions align="end">
-                <button mat-button>Ver resultados</button>
+                <button (click)="verResultados(cachorro.id)" mat-button>Ver resultados</button>
               </mat-card-actions>
             </mat-card>
           </div>
@@ -45,11 +45,12 @@
                 {{cachorro.nome}}
               </mat-card-content>
               <mat-card-actions align="end">
-                <button mat-button>Ver resultados</button>
+                <button (click)="verResultados(cachorro.id)" mat-button>Ver resultados</button>
               </mat-card-actions>
             </mat-card>
           </div>
         </section>
+
       </mat-card-content>
     </mat-card>
   </section>
