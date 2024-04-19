@@ -11,6 +11,8 @@ export class TopnavbarComponent {
   @Input() logo: boolean = false;
   @Input() voltar: string = '/';
 
+  logado: boolean = true
+
   constructor(private router: Router) { }
 
 

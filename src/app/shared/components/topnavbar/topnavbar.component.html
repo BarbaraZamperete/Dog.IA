@@ -13,9 +13,12 @@
   <mat-toolbar  class="topnavbar" color="primary">
     <a href=""><img src="assets/images/dogai.png" alt="Logo" class="logo"></a>
     <span class="spacer"></span>
-    <button mat-button (click)="onClick()"  class="nav-button voltar">
+    <button mat-button (click)="onClick()"  class="nav-button menu voltar">
       <span class="material-symbols-outlined">navigate_before</span>
       Voltar
+    </button>
+    <button *ngIf="logado" mat-button (click)="onClick()"  class="nav-button menu">
+      Sair
     </button>
   </mat-toolbar>
 </section>
