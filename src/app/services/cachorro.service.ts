@@ -34,8 +34,21 @@ export class CachorroService {
   }
 
 
-  getAllCachorrosByUser(usuario_id: number) {
-    return this.http.get(`${this.apiUrl}/cachorros/`)
+  getCachorrosBuscadosByUser(usuario_id: number) {
+    return this.http.get(`${this.apiUrl}/cachorros/buscados`)
+      .pipe(
+        // map((response: any) => {
+        //   // response as Cachorro[]
+        //   response.filter((cachorro: any) => cachorro.usuario == usuario_id)
+        // }),
+        catchError((error: any) => {
+          console.error('Erro na requisição getCachorros:', error);
+          return throwError(error);
+        }))
+  }
+
+  getCachorrosAvistadosByUser(usuario_id: number) {
+    return this.http.get(`${this.apiUrl}/cachorros/avistados`)
       .pipe(
         // map((response: any) => {
         //   // response as Cachorro[]

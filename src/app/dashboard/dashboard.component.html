@@ -6,17 +6,40 @@
         <mat-card-title class="titulo">Oi, Usuário</mat-card-title>
       </mat-card-header>
       <mat-card-content class="content">
-        <section class="cachorros-lista">
-          <div class="cachorros-lista-titulo">
+
+        <section *ngIf="cachorrosBuscados$ | async as cachorros" class="cachorros-lista">
+          <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
             Meus cachorros perdidos
           </div>
-          <div *ngIf="cachorros$ | async as cachorros" class="container-cachorro">
+          <div class="container-cachorro">
             <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
               <mat-card-header>
                 <mat-card-title>#{{cachorro.id}}</mat-card-title>
               </mat-card-header>
               <div class="imagem-box">
-                <img matCardImage src="http://localhost:8000/media/d93415e7.jpg">
+                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
+              </div>
+              <mat-card-content>
+                {{cachorro.nome}}
+              </mat-card-content>
+              <mat-card-actions align="end">
+                <button mat-button>Ver resultados</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </section>
+
+        <section *ngIf="cachorrosAvistados$ | async as cachorros" class="cachorros-lista">
+          <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
+            Meus cachorros avistados {{cachorros}}
+          </div>
+          <div class="container-cachorro">
+            <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
+              <mat-card-header>
+                <mat-card-title>#{{cachorro.id}}</mat-card-title>
+              </mat-card-header>
+              <div class="imagem-box">
+                <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
               </div>
               <mat-card-content>
                 {{cachorro.nome}}

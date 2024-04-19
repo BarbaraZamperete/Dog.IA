@@ -16,7 +16,8 @@ export class DashboardComponent {
   //   {id: 123, nome: 'Guida', imagemUrl: '', texto: ''}
   // ]
 
-  cachorros$: Observable<any>
+  cachorrosBuscados$: Observable<any>
+  cachorrosAvistados$: Observable<any>
 
   constructor(
     private cachorroService: CachorroService
@@ -25,7 +26,8 @@ export class DashboardComponent {
   }
 
   getCachorrosServidor(){
-    this.cachorros$ = this.cachorroService.getAllCachorrosByUser(1)
+    this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser(1)
+    this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser(1)
   }
 
 }

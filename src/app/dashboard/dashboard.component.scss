@@ -10,7 +10,7 @@
     padding-left: 0;
 
     .titulo {
-      margin: 0px 0 30px 0;
+      // margin: 0px 0 30px 0;
       // max-width: 250px;
       width: clamp(120px, 20vw, 250px);
       // height: 50px;
@@ -30,6 +30,7 @@
     // gap: 20px;
 
     .cachorros-lista {
+      margin-top: 30px;
 
       .cachorros-lista-titulo {
         font-size: clamp(13px, 12px + 0.5vw, 20px);
@@ -42,7 +43,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
-      justify-content: space-between;
+      // justify-content: space-between;
 
       .cachorro {
         width: 300px;
@@ -55,6 +56,7 @@
           display: flex;
           padding: 10px;
           justify-content: center;
+          margin: auto;
 
           img {
             max-height: 100%;
