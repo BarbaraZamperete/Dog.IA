@@ -32,9 +32,33 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-bottom: 1px solid $white-gray;
+    padding-bottom: 30px;
 
     button {
       align-self: flex-end;
+    }
+  }
+
+  .ou {
+    text-align: center;
+    color: $white-black;
+    font-size: 0.8rem;
+    font-weight: 300;
+
+    .text {
+      font-size: calc(10px + 0.5vw);
+    }
+
+    .entrar-text {
+
+      a {
+        color: #554596;
+        text-decoration: underline;
+        font-size: calc(10px + 0.5vw);
+        font-weight: bold;
+      }
+
     }
   }
 
