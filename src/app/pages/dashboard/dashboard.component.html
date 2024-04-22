@@ -10,14 +10,26 @@
         <section *ngIf="cachorrosBuscados$ | async as cachorros" class="cachorros-lista">
           <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
             Meus cachorros perdidos
+
+            <button (click)="onAdicionar('perdido')" mat-icon-button class="nav-button">
+              <span class="material-symbols-outlined">add_circle</span>
+            </button>
+
           </div>
           <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
             [botaoNome]="'Resultados'"></app-card-cachorro>
         </section>
 
+        <span class="space"></span>
+
         <section *ngIf="cachorrosAvistados$ | async as cachorros" class="cachorros-lista">
           <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
             Meus cachorros avistados
+
+            <button (click)="onAdicionar('avistado')" mat-icon-button class="nav-button">
+              <span class="material-symbols-outlined">add_circle</span>
+            </button>
+
           </div>
           <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
             [botaoNome]="'Resultados'"></app-card-cachorro>

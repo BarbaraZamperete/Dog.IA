@@ -5,6 +5,7 @@
     <mat-card class="card">
       <mat-card-header class="titulo">
         <mat-card-title>Cadastro de Cachorro</mat-card-title>
+        <mat-card-subtitle>{{tipo}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="content">
         <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">

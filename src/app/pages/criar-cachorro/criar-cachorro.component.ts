@@ -5,7 +5,7 @@ import { Raca } from '../../interfaces/raca.interface';
 import { Observable, map } from 'rxjs';
 import { CachorroService } from '../../services/cachorro.service';
 import { Cachorro } from '../../interfaces/cachorro';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-cachorro',
@@ -24,16 +24,20 @@ export class CriarCachorroComponent {
   selectedFileName: string | null = null;
   file: File
   racas$: Observable<Raca[]>;
+  tipo: string
 
   constructor(
     private fb: FormBuilder,
     private racaService: RacaService,
     private cachorroService: CachorroService,
-    private router: Router
+    private router: Router,
+    private activeRoute: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
+
+    this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "perdido"
 
     this.cachorroForm = this.fb.group({
       nome: ['', Validators.required],

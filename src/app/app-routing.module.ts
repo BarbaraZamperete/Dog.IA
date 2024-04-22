@@ -11,7 +11,7 @@ import { ResultadosComponent } from './pages/resultados/resultados.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro/usuario', component: CriarUsuarioComponent },
-  { path: 'cadastro/cachorro', component: CriarCachorroComponent },
+  { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'resultados/:id', component: ResultadosComponent }
