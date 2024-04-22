@@ -13,10 +13,14 @@ export class TopnavbarComponent {
 
   logado: boolean = true
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private router: Router) { }
 
 
   onBack(){
     this.location.back();
+  }
+
+  onNavTo(path: string){
+    this.router.navigate([path])
   }
 }
