@@ -37,10 +37,10 @@ export class CriarCachorroComponent {
 
   ngOnInit(): void {
 
-    this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "perdido"
+    this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
     this.cachorroForm = this.fb.group({
-      nome: ['', Validators.required],
+      nome: [this.tipo === 'buscado' ? '' : null, this.tipo === 'buscado' ? Validators.required : null],
       raca: ['', Validators.required],
       genero: ['', Validators.required]
     });
@@ -68,7 +68,8 @@ export class CriarCachorroComponent {
         nome: this.cachorroForm.get('nome')?.value || '',
         raca: +this.cachorroForm.get('raca')?.value || 1,
         genero: +this.cachorroForm.get('genero')?.value || 1,
-        usuario: 1
+        usuario: 1,
+        tipo: this.tipo=='buscado'? 1 : 2
       }
       this.createCachorro(cachorroObj)
     } else {
@@ -80,7 +81,7 @@ export class CriarCachorroComponent {
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response) => {
         console.log('Resposta da requisição POST:', response);
-        this.router.navigate(['/cadastro/cachorro']);
+        this.router.navigate(['/dashboard']);
       },
       (error) => {
         console.error('Erro na requisição POST:', error);
