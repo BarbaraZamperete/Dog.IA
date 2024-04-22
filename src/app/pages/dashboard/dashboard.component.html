@@ -17,7 +17,7 @@
 
         <section *ngIf="cachorrosAvistados$ | async as cachorros" class="cachorros-lista">
           <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
-            Meus cachorros avistados {{cachorros}}
+            Meus cachorros avistados
           </div>
           <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
             [botaoNome]="'Resultados'"></app-card-cachorro>

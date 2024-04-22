@@ -9,9 +9,9 @@
       </mat-card-header>
       <mat-card-content class="content">
 
-        <section *ngIf="cachorros$ as cachorros" class="cachorros-lista">
+        <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
           <div class="container-cachorro">
-            <app-card-cachorro [cachorros]="cachorros" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
+            <app-card-cachorro [cachorros]="combinacoes" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
           </div>
         </section>
 

@@ -12,7 +12,8 @@ export class CardCachorroComponent {
     @Input() acao: string
     @Input() botaoNome: string
 
-  constructor(    private router: Router) { }
+  constructor(    private router: Router) {
+   }
 
   onAction(arg: any){
     this.acao == "resultados" ? this.verResultados(arg) : this.onContact(arg)

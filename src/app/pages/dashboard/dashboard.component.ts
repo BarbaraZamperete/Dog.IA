@@ -26,8 +26,8 @@ export class DashboardComponent {
   }
 
   getCachorrosServidor(){
-    this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser(1)
-    this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser(1)
+    this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser('2')
+    this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser('2')
   }
 
 }

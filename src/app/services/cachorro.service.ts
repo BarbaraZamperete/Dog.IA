@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cachorro } from '../interfaces/cachorro';
 import { catchError, map, switchMap, throwError } from 'rxjs';
@@ -34,29 +34,72 @@ export class CachorroService {
   }
 
 
-  getCachorrosBuscadosByUser(usuario_id: number) {
-    return this.http.get(`${this.apiUrl}/cachorros/buscados`)
+  getCachorrosBuscadosByUser(usuario_id: string = '') {
+    if (usuario_id == ''){
+      return this.http.get(`${this.apiUrl}/cachorros/buscados`)
       .pipe(
-        // map((response: any) => {
-        //   // response as Cachorro[]
-        //   response.filter((cachorro: any) => cachorro.usuario == usuario_id)
-        // }),
+        catchError((error: any) => {
+          console.error('Erro na requisição getCachorros:', error);
+          return throwError(error);
+        }))
+    }
+    let params = new HttpParams()
+    params = params.append('usuario', usuario_id)
+    return this.http.get(`${this.apiUrl}/cachorros/buscados`, {params})
+      .pipe(
         catchError((error: any) => {
           console.error('Erro na requisição getCachorros:', error);
           return throwError(error);
         }))
   }
 
-  getCachorrosAvistadosByUser(usuario_id: number) {
-    return this.http.get(`${this.apiUrl}/cachorros/avistados`)
+  getCachorrosAvistadosByUser(usuario_id: string = '') {
+
+    if (usuario_id == ''){
+      return this.http.get(`${this.apiUrl}/cachorros/avistados`)
       .pipe(
-        // map((response: any) => {
-        //   // response as Cachorro[]
-        //   response.filter((cachorro: any) => cachorro.usuario == usuario_id)
-        // }),
         catchError((error: any) => {
           console.error('Erro na requisição getCachorros:', error);
           return throwError(error);
         }))
+    }
+
+    let params = new HttpParams()
+    params = params.append('usuario', usuario_id)
+    return this.http.get(`${this.apiUrl}/cachorros/avistados`, {params})
+      .pipe(
+        catchError((error: any) => {
+          console.error('Erro na requisição getCachorros:', error);
+          return throwError(error);
+        }))
+  }
+
+  generateResults(id: string) {
+    let post = new FormData()
+    post.append('id_cachorro', id)
+    return this.http.post(`${this.apiUrl}/combinacoes/adicionar`, post).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição postCachorro:', error);
+        return throwError(error);
+      })
+    )
+  }
+
+  getResultsByBuscado(id: string) {
+    return this.http.get(`${this.apiUrl}/combinacoes/buscado/${id}`).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição getCachorro:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  getResultsByAvistado(id: string) {
+    return this.http.get(`${this.apiUrl}/combinacoes/avistado/${id}`).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição getCachorro:', error);
+        return throwError(error);
+      })
+    );
   }
 }
