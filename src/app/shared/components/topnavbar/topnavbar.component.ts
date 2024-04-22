@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-topnavbar',
@@ -9,14 +10,13 @@ import { Router } from '@angular/router';
 export class TopnavbarComponent {
 
   @Input() logo: boolean = false;
-  @Input() voltar: string = '/';
 
   logado: boolean = true
 
-  constructor(private router: Router) { }
+  constructor(private location: Location) { }
 
 
-  onClick(rota = this.voltar){
-    this.router.navigate([rota]);
+  onBack(){
+    this.location.back();
   }
 }
