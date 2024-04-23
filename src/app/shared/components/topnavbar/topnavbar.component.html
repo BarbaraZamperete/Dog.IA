@@ -1,23 +1,33 @@
-<section *ngIf="!logo" class="header">
-  <mat-toolbar class="topnavbar header" color="primary">
+<!-- <section *ngIf="!logo" class="header">
+  <mat-toolbar class="topnavbar header" color="primary"> -->
     <!-- <img src="assets/dogai.png" alt="Logo" class="logo"> -->
+    <!-- <span class="spacer"></span>
+    <ng-container *ngIf="menuNav">
+      <button mat-button (click)="onNavTo('/sobre')" class="nav-button menu custom-text-color">Sobre</button>
+      <button mat-button (click)="onNavTo('/cachorros')" class="nav-button menu custom-text-color">Cachorros</button>
+      <button mat-button (click)="onNavTo('/login')" class="nav-button menu custom-text-color">Entrar</button>
+    </ng-container>
+  </mat-toolbar>
+</section> -->
+
+<section class="header">
+  <mat-toolbar class="topnavbar" color="primary">
+    <a *ngIf="logo" href=""><img src="assets/images/dogai.png" alt="Logo" class="logo"></a>
     <span class="spacer"></span>
-    <button mat-button (click)="onNavTo('/sobre')" class="nav-button menu custom-text-color">Sobre</button>
-    <button mat-button (click)="onNavTo('/cachorros')" class="nav-button menu custom-text-color">Cachorros</button>
-    <button mat-button (click)="onNavTo('/login')" class="nav-button menu custom-text-color">Entrar</button>
+    <ng-container>
+      <button *ngIf="!home" mat-button (click)="onBack()" class="nav-button menu voltar">
+        <span class="material-symbols-outlined">navigate_before</span>
+        Voltar
+      </button>
+      <button mat-button (click)="onNavTo('/sobre')" class="nav-button menu custom-text-color">Sobre</button>
+      <button mat-button (click)="onNavTo('/cachorros')" class="nav-button menu custom-text-color">Cachorros</button>
+      <button *ngIf="!logado; else menuLogado" mat-button (click)="onNavTo('/login')" class="nav-button menu custom-text-color">Entrar</button>
+    </ng-container>
   </mat-toolbar>
 </section>
 
-<section *ngIf="logo" class="header">
-  <mat-toolbar class="topnavbar" color="primary">
-    <a href=""><img src="assets/images/dogai.png" alt="Logo" class="logo"></a>
-    <span class="spacer"></span>
-    <button mat-button (click)="onBack()" class="nav-button menu voltar">
-      <span class="material-symbols-outlined">navigate_before</span>
-      Voltar
-    </button>
-    <button *ngIf="logado" mat-button (click)="onBack()" class="nav-button menu">
-      Sair
-    </button>
-  </mat-toolbar>
-</section>
+<ng-template #menuLogado>
+  <button mat-button (click)="onBack()" class="nav-button menu">
+    Sair
+  </button>
+</ng-template>
