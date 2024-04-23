@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './services/auth.guard';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
+import { CachorrosComponent } from './pages/cachorros/cachorros.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'resultados/:id', component: ResultadosComponent }
+  { path: 'resultados/:id', component: ResultadosComponent },
+  { path: 'cachorros', component: CachorrosComponent },
+  { path: 'sobre', component: SobreComponent }
 ];
 
 

@@ -1,0 +1,20 @@
+@import "../../../assets/color.scss";
+
+.main-container .cachorros-diplay{
+  width: calc(100vw - 4rem);
+  max-width: 1000px;
+  min-width: 290px;
+
+  .cachorros-perdidos{
+    margin-bottom: 30px;
+    h3{
+      font-size: clamp(13px, 12px + 0.5vw, 20px);
+    }
+
+  }
+
+  .cachorros-perdidos:first-child{
+    padding-bottom: 40px;
+    border-bottom: 1px solid $white-gray;
+  }
+}
