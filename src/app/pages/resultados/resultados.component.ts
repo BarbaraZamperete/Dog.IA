@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CachorroService } from '../../services/cachorro.service';
 import { Observable } from 'rxjs';
+import { CachorroService } from '../../services/cachorro.service';
 
 @Component({
   selector: 'app-resultados',
@@ -19,13 +19,7 @@ export class ResultadosComponent {
     private cachorroService: CachorroService
   ){
     this.cachorroId = routerActive.snapshot.paramMap.get('id') || '0'
-    // this.generateResults()
     this.getResultsByBuscado()
-  }
-
-  generateResults(){
-    console.log(this.cachorroId)
-    this.cachorroService.generateResults(this.cachorroId).subscribe(re => console.log(re))
   }
 
   getResultsByBuscado(){

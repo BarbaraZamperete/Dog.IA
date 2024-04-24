@@ -25,7 +25,7 @@ export class CriarCachorroComponent {
   file: File
   racas$: Observable<Raca[]>;
   tipo: string
-  usuario: number = 2
+  usuario: number = 1
 
   constructor(
     private fb: FormBuilder,
@@ -80,9 +80,10 @@ export class CriarCachorroComponent {
 
   createCachorro(cachorroObj: Cachorro): void {
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
-      (response) => {
+      (response: any) => {
         console.log('Resposta da requisição POST:', response);
-        this.tipo == 'buscado' ? this.router.navigate(['/dashboard']) : this.router.navigate(['/cachorros']);
+        const id = response.id
+        this.tipo == 'buscado' ? this.router.navigate(['/dashboard']) : this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {
         console.error('Erro na requisição POST:', error);
