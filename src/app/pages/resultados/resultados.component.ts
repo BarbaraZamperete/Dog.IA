@@ -17,13 +17,26 @@ export class ResultadosComponent {
   constructor(
     private routerActive: ActivatedRoute,
     private cachorroService: CachorroService
-  ){
+  ) {
     this.cachorroId = routerActive.snapshot.paramMap.get('id') || '0'
-    this.getResultsByBuscado()
+    this.getCachorro()
   }
 
-  getResultsByBuscado(){
+  getCachorro() {
+    this.cachorroService.getCachorroById(this.cachorroId).subscribe(
+      (cachorro: any) => {
+        this.cachorroIdTipo = cachorro.tipo
+        this.cachorroIdTipo == 1?this.getResultsByBuscado() : this.getResultsByAvistado()
+      }
+    )
+  }
+
+  getResultsByBuscado() {
     this.combinacoes$ = this.cachorroService.getResultsByBuscado(this.cachorroId)
+  }
+
+  getResultsByAvistado(){
+    this.combinacoes$ = this.cachorroService.getResultsByAvistado(this.cachorroId)
   }
 
 }

@@ -11,7 +11,7 @@
 
         <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
           <div class="container-cachorro">
-            <app-card-cachorro [cachorros]="combinacoes" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
+            <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
           </div>
         </section>
 

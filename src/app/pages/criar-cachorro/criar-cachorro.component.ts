@@ -82,7 +82,7 @@ export class CriarCachorroComponent {
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response: any) => {
         console.log('Resposta da requisição POST:', response);
-        const id = response.id
+        const id = response.cachorro
         this.tipo == 'buscado' ? this.router.navigate(['/dashboard']) : this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {

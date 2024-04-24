@@ -11,6 +11,7 @@ export class CardCachorroComponent {
     @Input() cachorros: any[]
     @Input() acao: string
     @Input() botaoNome: string
+    @Input() tipo: number = 1
 
   constructor(    private router: Router) {
    }
