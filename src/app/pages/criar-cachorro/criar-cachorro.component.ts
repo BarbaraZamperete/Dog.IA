@@ -25,6 +25,7 @@ export class CriarCachorroComponent {
   file: File
   racas$: Observable<Raca[]>;
   tipo: string
+  usuario: number = 2
 
   constructor(
     private fb: FormBuilder,
@@ -68,7 +69,7 @@ export class CriarCachorroComponent {
         nome: this.cachorroForm.get('nome')?.value || '',
         raca: +this.cachorroForm.get('raca')?.value || 1,
         genero: +this.cachorroForm.get('genero')?.value || 1,
-        usuario: 1,
+        usuario: this.tipo == 'avistado' ? 1 : this.usuario,
         tipo: this.tipo=='buscado'? 1 : 2
       }
       this.createCachorro(cachorroObj)
