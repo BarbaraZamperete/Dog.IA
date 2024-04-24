@@ -7,6 +7,19 @@
     }
   }
 
+  // Menu móvel
+  .topnavbar .mobile-menu {
+    display: none !important;
+    /* Mostra o menu */
+  }
+
+  // Menu desktop
+  .topnavbar .desk-menu {
+    display: block !important;
+    /* Esconde o menu */
+  }
+
+
   .topnavbar {
     height: 80px;
     margin: auto;
@@ -17,9 +30,7 @@
     .logo {
       margin-top: 10px;
       width: auto;
-      /* Defina o tamanho desejado */
       height: 60px;
-      /* Mantenha a proporção */
     }
 
     .spacer {
@@ -59,6 +70,32 @@
     /* Remove a barra vertical do último botão */
     .nav-button.menu:last-child::after {
       display: none;
+    }
+  }
+}
+
+
+// Media query para largura menor que 768px (móvel)
+@media screen and (max-width: 768px) {
+  .header .topnavbar .mobile-menu {
+    display: block !important;
+  }
+
+  .header .topnavbar .desk-menu {
+    display: none !important;
+  }
+}
+
+
+@media screen and (max-width:768px) {
+  .header .topnavbar {
+
+    .logo {
+      height: 40px;
+    }
+
+    .nav-button {
+      font-size: 13px;
     }
   }
 }

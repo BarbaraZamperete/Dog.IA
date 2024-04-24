@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewChecked, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
   templateUrl: './topnavbar.component.html',
   styleUrl: './topnavbar.component.scss',
 })
-export class TopnavbarComponent {
+export class TopnavbarComponent{
 
 
   @Input() logo: boolean = false;
