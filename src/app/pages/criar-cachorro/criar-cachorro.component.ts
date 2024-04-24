@@ -26,6 +26,7 @@ export class CriarCachorroComponent {
   racas$: Observable<Raca[]>;
   tipo: string
   usuario: number = 1
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -79,6 +80,7 @@ export class CriarCachorroComponent {
   }
 
   createCachorro(cachorroObj: Cachorro): void {
+    this.loading = true
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response: any) => {
         console.log('Resposta da requisição POST:', response);
@@ -87,6 +89,9 @@ export class CriarCachorroComponent {
       },
       (error) => {
         console.error('Erro na requisição POST:', error);
+      },
+      () => {
+        this.loading = false; // Define o estado de carregamento como false após a requisição
       }
     );
   }

@@ -4,6 +4,7 @@ import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 
@@ -11,7 +12,8 @@ import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.
   declarations: [
     TopnavbarComponent,
     FooterComponent,
-    CardCachorroComponent
+    CardCachorroComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.
     TopnavbarComponent,
     AppMaterialModule,
     FooterComponent,
-    CardCachorroComponent
+    CardCachorroComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

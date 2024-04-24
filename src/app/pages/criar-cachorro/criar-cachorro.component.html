@@ -1,46 +1,56 @@
 <section class="big">
-  <app-topnavbar [logo]="true" ></app-topnavbar>
+  <app-topnavbar [logo]="true"></app-topnavbar>
 
   <section class="main-container">
-    <mat-card class="card">
-      <mat-card-header class="titulo">
-        <mat-card-title>Cadastro de Cachorro</mat-card-title>
-        <mat-card-subtitle>{{tipo}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content class="content">
-        <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">
-          <div class="file-input-container">
-            <mat-label class="file-label">Imagem:</mat-label>
-            <span class="file-name">{{ selectedFileName }}</span>
-            <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
-            <button class="custom-button" mat-icon-button (click)="fileInput.click()" tabindex="-1">
-              <span class="material-symbols-outlined">image</span>
-            </button>
-          </div>
-          <mat-form-field appearance="outline">
-            <mat-label>Nome do Cachorro</mat-label>
-            <input matInput formControlName="nome" placeholder="Nome do Cachorro">
-          </mat-form-field>
 
-          <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
-            <mat-label>Raça</mat-label>
-            <mat-select matInput formControlName="raca" placeholder="Raça">
-              <mat-option *ngFor="let raca of racas" [value]="raca.id">{{raca.nome}}, {{raca.id}}</mat-option>
-            </mat-select>
-          </mat-form-field>
+    <ng-container *ngIf="loading; else conteudo">
+      <app-loading [mensagem]="'gerando resultados...'"></app-loading>
+    </ng-container>
 
-          <div class="file-input-container">
-            <mat-label class="file-label">Gênero: </mat-label>
-            <mat-radio-group formControlName="genero">
-              <mat-radio-button value="1">Macho</mat-radio-button>
-              <mat-radio-button value="2">Fêmea</mat-radio-button>
-            </mat-radio-group>
-          </div>
 
-          <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
-        </form>
-      </mat-card-content>
-    </mat-card>
+    <ng-template #conteudo>
+      <mat-card class="card">
+        <mat-card-header class="titulo">
+          <mat-card-title>Cadastro de Cachorro</mat-card-title>
+          <mat-card-subtitle>{{tipo}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="content">
+          <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">
+            <div class="file-input-container">
+              <mat-label class="file-label">Imagem:</mat-label>
+              <span class="file-name">{{ selectedFileName }}</span>
+              <input type="file" #fileInput (change)="onFileSelected(fileInput)" style="display: none">
+              <button class="custom-button" mat-icon-button (click)="fileInput.click()" tabindex="-1">
+                <span class="material-symbols-outlined">image</span>
+              </button>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Nome do Cachorro</mat-label>
+              <input matInput formControlName="nome" placeholder="Nome do Cachorro">
+            </mat-form-field>
+
+            <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
+              <mat-label>Raça</mat-label>
+              <mat-select matInput formControlName="raca" placeholder="Raça">
+                <mat-option *ngFor="let raca of racas" [value]="raca.id">{{raca.nome}}, {{raca.id}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="file-input-container">
+              <mat-label class="file-label">Gênero: </mat-label>
+              <mat-radio-group formControlName="genero">
+                <mat-radio-button value="1">Macho</mat-radio-button>
+                <mat-radio-button value="2">Fêmea</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
   </section>
+
+
   <app-footer></app-footer>
 </section>
