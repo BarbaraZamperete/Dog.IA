@@ -40,5 +40,6 @@ export class LoginComponent {
     // } else {
     //   console.log('Formulário inválido');
     // }
+    this.router.navigate(['/dashboard'])
   }
 }

@@ -1,8 +1,9 @@
 @import '../../../assets/color.scss';
 
 .card {
-  width: 80%;
+  width: calc(100vw - 4rem);
   max-width: 400px;
+  min-width: 290px;
 
   .imagem-box {
     margin-top: 15px;
@@ -11,7 +12,7 @@
     justify-content: center;
 
     img {
-      height: clamp(70px, 8vw, 120px);
+      height: clamp(70px, 8vw, 100px);
     }
   }
 
