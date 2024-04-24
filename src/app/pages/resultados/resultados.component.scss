@@ -10,10 +10,7 @@
     padding-left: 0;
 
     .titulo {
-      // margin: 0px 0 30px 0;
-      // max-width: 250px;
-      width: clamp(120px, 20vw, 250px);
-      // height: 50px;
+      padding: 5px 15px 5px 15px !important;
       color: #F5F5F5;
       background-color: #554596;
       display: flex;
@@ -27,22 +24,13 @@
   .content {
     display: flex;
     flex-direction: column;
-    // gap: 20px;
 
     .cachorros-lista {
       margin-top: 30px;
 
-      .cachorros-lista-titulo {
-        font-size: clamp(13px, 12px + 0.5vw, 20px);
+      .container-cachorro{
+        margin-bottom: 30px;
       }
-    }
-
-    .container-cachorro {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      // justify-content: space-between;
 
     }
   }
