@@ -19,7 +19,6 @@ export class TopnavbarComponent {
 
   constructor(private location: Location, private router: Router) {
     this.location.path() == '' ? this.home = true : this.home = false;
-    console.log(this.location.path())
   }
 
 
