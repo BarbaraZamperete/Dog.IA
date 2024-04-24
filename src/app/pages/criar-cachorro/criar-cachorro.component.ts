@@ -82,7 +82,7 @@ export class CriarCachorroComponent {
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response) => {
         console.log('Resposta da requisição POST:', response);
-        this.router.navigate(['/dashboard']);
+        this.tipo == 'buscado' ? this.router.navigate(['/dashboard']) : this.router.navigate(['/cachorros']);
       },
       (error) => {
         console.error('Erro na requisição POST:', error);
