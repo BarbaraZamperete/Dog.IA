@@ -4,7 +4,7 @@
     <div class="cachorros-diplay">
       <div *ngIf="cachorrosBuscados$ | async as cachorros_buscados" class="cachorros-perdidos">
         <h3>Cachorros Buscados:</h3>
-        <app-card-cachorro [cachorros]="cachorros_buscados"  [acao]="'resultados'" [botaoNome]="'Contactar'"></app-card-cachorro>
+        <app-card-cachorro [cachorros]="cachorros_buscados"  [acao]="'resultados'" [botaoNome]="'Resultados'"></app-card-cachorro>
       </div>
       <div *ngIf="cachorrosAvistados$ | async as cachorros_avistados" class="cachorros-perdidos">
         <h3>Cachorros Avistados:</h3>
