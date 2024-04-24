@@ -12,6 +12,8 @@
         <li class="nome">{{cachorro.nome}}</li>
         <li>{{cachorro.raca_nome}}</li>
         <li>{{cachorro.genero_display}}</li>
+        <span class="space"></span>
+        <li>{{cachorro.descricao}}</li>
       </ul>
     </mat-card-content>
     <mat-card-actions align="end">
@@ -35,6 +37,8 @@
           <li class="nome">{{tipo == 1 ? cachorro.id_avistado.nome : cachorro.id_buscado.nome}}</li>
           <li>{{tipo == 1 ? cachorro.id_avistado.raca_nome : cachorro.id_buscado.raca_nome}}</li>
           <li>{{tipo == 1 ? cachorro.id_avistado.genero_display : cachorro.id_buscado.genero_display}}</li>
+          <span class="space"></span>
+          <li>{{tipo == 1 ? cachorro.id_avistado.descricao : cachorro.id_buscado.descricao}}</li>
         </ul>
       </mat-card-content>
     </ng-container>

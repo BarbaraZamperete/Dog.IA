@@ -12,7 +12,7 @@
       <mat-card class="card">
         <mat-card-header class="titulo">
           <mat-card-title>Cadastro de Cachorro</mat-card-title>
-          <mat-card-subtitle>{{tipo}}</mat-card-subtitle>
+          <!-- <mat-card-subtitle>{{tipo}}</mat-card-subtitle> -->
         </mat-card-header>
         <mat-card-content class="content">
           <form [formGroup]="cachorroForm" (ngSubmit)="onSubmit()" class="form" enctype="multipart/form-data">
@@ -43,6 +43,13 @@
                 <mat-radio-button value="2">Fêmea</mat-radio-button>
               </mat-radio-group>
             </div>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Descrição</mat-label>
+              <textarea class="text-area" matInput formControlName="descricao" rows="2" maxlength="100"
+                placeholder="{{tipo == 'avistado' ? 'Escreva aqui uma forma de contato ou onde o cachorro foi avistado' : 'Descrição do cachorro e onde ele foi perdido'}}"></textarea>
+            </mat-form-field>
+
 
             <button mat-raised-button color="accent" type="submit">Criar Cachorro</button>
           </form>

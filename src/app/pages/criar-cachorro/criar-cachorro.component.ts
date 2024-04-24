@@ -44,7 +44,8 @@ export class CriarCachorroComponent {
     this.cachorroForm = this.fb.group({
       nome: [this.tipo === 'buscado' ? '' : null, this.tipo === 'buscado' ? Validators.required : null],
       raca: ['', Validators.required],
-      genero: ['', Validators.required]
+      genero: ['', Validators.required],
+      descricao: ['']
     });
 
     this.getRacasFromService()
@@ -71,7 +72,8 @@ export class CriarCachorroComponent {
         raca: +this.cachorroForm.get('raca')?.value || 1,
         genero: +this.cachorroForm.get('genero')?.value || 1,
         usuario: this.tipo == 'avistado' ? 1 : this.usuario,
-        tipo: this.tipo=='buscado'? 1 : 2
+        tipo: this.tipo=='buscado'? 1 : 2,
+        descricao: this.cachorroForm.get('descricao')?.value || ''
       }
       this.createCachorro(cachorroObj)
     } else {

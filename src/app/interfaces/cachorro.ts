@@ -4,4 +4,5 @@ export interface Cachorro {
   genero: number;
   usuario: number;
   tipo: number;
+  descricao: string
 }

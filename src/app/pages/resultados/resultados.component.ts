@@ -13,6 +13,7 @@ export class ResultadosComponent {
   cachorroId: string = '0'
   cachorroIdTipo: number = 1
   combinacoes$: Observable<any>
+  cachorroPesquisado: any
 
   constructor(
     private routerActive: ActivatedRoute,
@@ -25,6 +26,7 @@ export class ResultadosComponent {
   getCachorro() {
     this.cachorroService.getCachorroById(this.cachorroId).subscribe(
       (cachorro: any) => {
+        this.cachorroPesquisado = cachorro
         this.cachorroIdTipo = cachorro.tipo
         this.cachorroIdTipo == 1?this.getResultsByBuscado() : this.getResultsByAvistado()
       }

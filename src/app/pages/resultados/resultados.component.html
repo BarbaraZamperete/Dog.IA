@@ -8,10 +8,15 @@
         <mat-card-title class="titulo">Resultados para #{{cachorroId}}</mat-card-title>
       </mat-card-header>
       <mat-card-content class="content">
-
         <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
+          <!-- <div class="container-cachorro">
+            <img src="http://localhost:8000{{cachorroPesquisado.imagem[0].caminho}}" alt="">
+          </div> -->
+          <h4 class="descricao">Esses são os 10 melhores resultados encontrados para o cachorro #{{cachorroId}}, caso
+            acredite que um deles seja o cachorro pesquisado, não deixe de entrar em contato!</h4>
           <div class="container-cachorro">
-            <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'" [botaoNome]="'Contactar'"></app-card-cachorro>
+            <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'"
+              [botaoNome]="'Contactar'"></app-card-cachorro>
           </div>
         </section>
 
