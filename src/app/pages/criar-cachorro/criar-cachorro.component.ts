@@ -45,7 +45,7 @@ export class CriarCachorroComponent {
       nome: [this.tipo === 'buscado' ? '' : null, this.tipo === 'buscado' ? Validators.required : null],
       raca: ['', Validators.required],
       genero: ['', Validators.required],
-      descricao: ['']
+      descricao: ['', this.tipo === 'avistado' ? Validators.required : null]
     });
 
     this.getRacasFromService()

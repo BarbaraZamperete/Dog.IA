@@ -53,7 +53,7 @@
       </mat-card-content>
     </ng-container>
 
-    <mat-card-actions align="end">
+    <mat-card-actions *ngIf="tipo!=1" align="end">
       <button (click)="onAction(cachorro.id)" mat-flat-button>{{botaoNome}}</button>
     </mat-card-actions>
   </mat-card>
