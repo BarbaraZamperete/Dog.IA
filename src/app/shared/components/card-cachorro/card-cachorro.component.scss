@@ -15,6 +15,26 @@
     box-shadow: none !important;
     /* Aumenta a sombra */
 
+    .header-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .status {
+        color: $main-blue;
+        padding: 1px;
+        border-radius: 100px;
+        cursor: default;
+
+        &.encontrado{
+          cursor: pointer;
+          color: $dark-gray;
+        }
+
+
+      }
+    }
+
     .imagem-box {
       overflow: hidden;
       margin-bottom: 20px;
@@ -30,12 +50,12 @@
       }
     }
 
-    .mat-card-action .botton-card{
+    .mat-card-action .botton-card {
       background-color: $main-blue;
       color: $dark-white;
     }
 
-    .nome{
+    .nome {
       font-weight: bold;
     }
 

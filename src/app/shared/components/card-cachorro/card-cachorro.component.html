@@ -1,7 +1,16 @@
 <div *ngIf="acao=='resultados'" class="container-cachorro">
   <mat-card *ngFor="let cachorro of cachorros" class="cachorro">
-    <mat-card-header>
+    <mat-card-header class="header-card">
       <mat-card-title>#{{cachorro.id}}</mat-card-title>
+
+      <ng-container *ngIf="!cachorro.status">
+        <a class="status" title="Cachorro Encontrado"><span class="material-symbols-outlined">task_alt</span></a>
+      </ng-container>
+
+      <ng-container *ngIf="dashboard && cachorro.status && cachorro.tipo==1">
+        <a class="status encontrado" title="Mudar status para encontrado" (click)="changeStatus(cachorro.id, cachorro.nome)"><span class="material-symbols-outlined">task_alt</span></a>
+      </ng-container>
+
     </mat-card-header>
     <div class="imagem-box">
       <img matCardImage src="http://localhost:8000{{cachorro.imagem[0].caminho}}">
@@ -30,7 +39,8 @@
     </mat-card-header>
     <ng-container>
       <div class="imagem-box">
-        <img matCardImage src="http://localhost:8000{{tipo == 1 ? cachorro.id_avistado.imagem[0].caminho : cachorro.id_buscado.imagem[0].caminho}}">
+        <img matCardImage
+          src="http://localhost:8000{{tipo == 1 ? cachorro.id_avistado.imagem[0].caminho : cachorro.id_buscado.imagem[0].caminho}}">
       </div>
       <mat-card-content>
         <ul>

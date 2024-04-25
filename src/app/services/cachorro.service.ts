@@ -33,19 +33,28 @@ export class CachorroService {
     );
   }
 
+  getCachorroById(id: string) {
+    return this.http.get(`${this.apiUrl}/cachorros/${id}`).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição getCachorro:', error);
+        return throwError(error);
+      })
+    );
+  }
+
 
   getCachorrosBuscadosByUser(usuario_id: string = '') {
-    if (usuario_id == ''){
+    if (usuario_id == '') {
       return this.http.get(`${this.apiUrl}/cachorros/buscados`)
-      .pipe(
-        catchError((error: any) => {
-          console.error('Erro na requisição getCachorros:', error);
-          return throwError(error);
-        }))
+        .pipe(
+          catchError((error: any) => {
+            console.error('Erro na requisição getCachorros:', error);
+            return throwError(error);
+          }))
     }
     let params = new HttpParams()
     params = params.append('usuario', usuario_id)
-    return this.http.get(`${this.apiUrl}/cachorros/buscados`, {params})
+    return this.http.get(`${this.apiUrl}/cachorros/buscados`, { params })
       .pipe(
         catchError((error: any) => {
           console.error('Erro na requisição getCachorros:', error);
@@ -55,23 +64,33 @@ export class CachorroService {
 
   getCachorrosAvistadosByUser(usuario_id: string = '') {
 
-    if (usuario_id == ''){
+    if (usuario_id == '') {
       return this.http.get(`${this.apiUrl}/cachorros/avistados`)
-      .pipe(
-        catchError((error: any) => {
-          console.error('Erro na requisição getCachorros:', error);
-          return throwError(error);
-        }))
+        .pipe(
+          catchError((error: any) => {
+            console.error('Erro na requisição getCachorros:', error);
+            return throwError(error);
+          }))
     }
 
     let params = new HttpParams()
     params = params.append('usuario', usuario_id)
-    return this.http.get(`${this.apiUrl}/cachorros/avistados`, {params})
+    return this.http.get(`${this.apiUrl}/cachorros/avistados`, { params })
       .pipe(
         catchError((error: any) => {
           console.error('Erro na requisição getCachorros:', error);
           return throwError(error);
         }))
+  }
+
+  changeStatus(id: number, status: boolean) {
+
+    return this.http.patch(`${this.apiUrl}/cachorros/${id}/`, { status: status }).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição postCachorro:', error);
+        return throwError(error);
+      })
+    )
   }
 
   generateResults(id: string) {
@@ -96,10 +115,13 @@ export class CachorroService {
 
   getResultsByAvistado(id: string) {
     return this.http.get(`${this.apiUrl}/combinacoes/avistado/${id}`).pipe(
+      // map(res=> console.log(res)),
       catchError((error: any) => {
         console.error('Erro na requisição getCachorro:', error);
         return throwError(error);
       })
     );
   }
+
+
 }
