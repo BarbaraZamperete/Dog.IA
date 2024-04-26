@@ -51,6 +51,12 @@ export class AuthService {
 
   }
 
+  setCredentials(token: string, username: string, id: string){
+    sessionStorage.setItem(this.authTokenKey, token);
+    sessionStorage.setItem(this.userIdKey, id);
+    sessionStorage.setItem(this.usernameKey, username);
+  }
+
   getUserId(): string | null {
     return sessionStorage.getItem(this.userIdKey);
   }

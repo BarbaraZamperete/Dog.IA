@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-criar-usuario',
@@ -14,12 +15,17 @@ export class CriarUsuarioComponent {
   usuarioForm!: FormGroup;
 
   isEditable = false;
-  constructor(private fb: FormBuilder, private router: Router, private usuarioService: UsuarioService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private usuarioService: UsuarioService,
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.usuarioForm = this.fb.group({
       nomeTutor: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       telefone: ['', Validators.required],
       senha: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', Validators.required]
@@ -28,20 +34,19 @@ export class CriarUsuarioComponent {
 
   onSubmit() {
     if (this.usuarioForm.valid) {
-      // Aqui você pode implementar a lógica para enviar os dados do formulário para o servidor
       console.log(this.usuarioForm.value);
       if (this.usuarioForm.controls['senha'].value == this.usuarioForm.controls['confirmarSenha'].value) {
         const usuarioData: Usuario = {
-          nome: this.usuarioForm.value.nomeTutor,
+          first_name: this.usuarioForm.value.nomeTutor,
           password: this.usuarioForm.value.senha,
           telefone: this.usuarioForm.value.telefone,
-          email: this.usuarioForm.value.email
+          username: this.usuarioForm.value.username
         };
         let user
         this.usuarioService.insertUser(usuarioData).subscribe(response => {
           console.log('Resposta da requisição POST:', response);
-          user = response
-          this.router.navigate(['/cadastro/cachorro']);
+          this.authService.setCredentials(response.token, response.username, response.id)
+          this.router.navigate(['/cadastro/cachorro/buscado']);
         }, error => {
           console.error('Erro na requisição POST:', error);
         })
@@ -50,7 +55,6 @@ export class CriarUsuarioComponent {
       }
 
     } else {
-      // Se o formulário não for válido, você pode adicionar lógica para lidar com isso, como exibir mensagens de erro
       console.log('Formulário inválido');
     }
 
