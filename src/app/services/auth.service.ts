@@ -65,8 +65,8 @@ export class AuthService {
     return sessionStorage.getItem(this.usernameKey);
   }
 
-  isLoggedIn(): Observable<boolean> {
-    return this.loggedIn.asObservable();
+  isLoggedIn(): boolean {
+    return this.loggedIn.getValue();
   }
 
   logout(): void {

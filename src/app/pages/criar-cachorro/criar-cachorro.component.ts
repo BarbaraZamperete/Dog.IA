@@ -39,7 +39,20 @@ export class CriarCachorroComponent {
 
   ngOnInit(): void {
 
+    if (sessionStorage && sessionStorage.getItem('userId') !== null) {
+      const userId = sessionStorage.getItem('userId');
+      if (userId) {
+        this.usuario = parseInt(userId, 10); // Parse para número
+      }
+    }
+
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
+
+    if(this.tipo == 'buscado'){
+
+      this.router.navigate(['/login'])
+      // window.alert("Você você precisa estar logado para adicionar um cachorro perdido")
+    }
 
     this.cachorroForm = this.fb.group({
       nome: [this.tipo === 'buscado' ? '' : null, this.tipo === 'buscado' ? Validators.required : null],

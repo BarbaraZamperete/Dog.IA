@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CriarUsuarioComponent } from './pages/criar-usuario/criar-usuario.component';
-import { CriarCachorroComponent } from './pages/criar-cachorro/criar-cachorro.component';
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AuthGuard } from './services/auth.guard';
-import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { CachorrosComponent } from './pages/cachorros/cachorros.component';
+import { CriarCachorroComponent } from './pages/criar-cachorro/criar-cachorro.component';
+import { CriarUsuarioComponent } from './pages/criar-usuario/criar-usuario.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
+import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro/usuario', component: CriarUsuarioComponent },
-  { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent },
+  { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[authGuard] },
   { path: 'resultados/:id', component: ResultadosComponent },
   { path: 'cachorros', component: CachorrosComponent },
   { path: 'sobre', component: SobreComponent }
@@ -27,3 +27,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+;
