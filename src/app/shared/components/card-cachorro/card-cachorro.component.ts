@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CachorroService } from '../../../services/cachorro.service';
+import { UsuarioService } from '../../../services/usuario.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-card-cachorro',
@@ -15,19 +18,36 @@ export class CardCachorroComponent {
   @Input() tipo: number = 1
   dashboard: boolean = false
 
-  constructor(private router: Router, private cachorroService: CachorroService) {
+  constructor(
+    private router: Router,
+    private cachorroService: CachorroService,
+    private usuarioService: UsuarioService,
+    public dialog: MatDialog
+  ) {
     this.dashboard = this.router.url=="/dashboard" ? true : false;
   }
 
-  onAction(arg: any) {
-    this.acao == "resultados" ? this.verResultados(arg) : this.onContact(arg)
+  onAction(id:any, combinacao:any) {
+    this.acao == "resultados" ? this.verResultados(id) : this.onContact(combinacao)
   }
 
-  onContact(arg: any) {
-    console.log('111')
+  onContact(combinacao: any) {
+    const telefone =combinacao.id_buscado.tutor_telefone
+    console.log(telefone)
+    this.openDialog('3000','1500', {telefone: telefone, cachorro: combinacao.id_buscado.nome})
+
   }
 
-  verResultados(id: any) {
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, data:any): void {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data
+    });
+  }
+
+  verResultados(id:any) {
     this.router.navigate(['resultados', id])
   }
 

@@ -1,0 +1,48 @@
+@import "../../../../assets/color.scss";
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  padding: 20px;
+
+  div h3{
+    text-align: center;
+  }
+
+  .tel-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0 8px;
+    border-radius: 10px 50px 50px 10px;
+    align-items: center;
+    background-color: $dark-white;
+    border: 1px solid $white-gray;
+    width: 100%;
+    margin: 15px 0 15px 0;
+
+    .copy-bt{
+      background-color: $main-blue;
+      margin: 0 !important;
+    }
+  }
+
+
+
+  .wpp-bt {
+    margin-bottom: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: $main-purple;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+
+    img {
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+  }
+}

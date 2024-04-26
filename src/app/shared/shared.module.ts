@@ -5,6 +5,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -13,7 +14,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     TopnavbarComponent,
     FooterComponent,
     CardCachorroComponent,
-    LoadingComponent
+    LoadingComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,

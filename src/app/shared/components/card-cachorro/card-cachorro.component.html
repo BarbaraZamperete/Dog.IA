@@ -26,7 +26,7 @@
       </ul>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button (click)="onAction(cachorro.id)" mat-flat-button>{{botaoNome}}</button>
+      <button (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -54,7 +54,7 @@
     </ng-container>
 
     <mat-card-actions *ngIf="tipo!=1" align="end">
-      <button (click)="onAction(cachorro.id)" mat-flat-button>{{botaoNome}}</button>
+      <button (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
     </mat-card-actions>
   </mat-card>
 </div>

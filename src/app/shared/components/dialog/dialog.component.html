@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <h3>Contactar o(a) Tutor(a)</h3>
+  <div class="tel-box">
+    <div>
+      <h3>{{data.telefone}}</h3>
+    </div>
+    <button title="Copiar telefone" class="copy-bt" mat-mini-fab (click)="copyPhoneNumber()">
+      <span class="material-symbols-outlined">
+      content_copy
+      </span>
+    </button>
+  </div>
+  <button class="wpp-bt" mat-button (click)="openWhatsApp()">
+    <img src="/assets/images/whatsapp.svg" alt="">
+    Enviar WhatsApp
+  </button>
+</div>
