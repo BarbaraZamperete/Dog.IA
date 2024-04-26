@@ -17,29 +17,30 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       senha: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
-    // if (this.loginForm.valid) {
-    //   const email = this.loginForm.value.email;
-    //   const senha = this.loginForm.value.senha;
+    if (this.loginForm.valid) {
+      const username = this.loginForm.value.username;
+      const senha = this.loginForm.value.senha;
 
-    //   // Chamando o método login do AuthService
-    //   this.authService.login(email, senha).subscribe((loggedIn: boolean) => {
-    //     if (loggedIn) {
-    //       // Redirecionando para a página principal após o login
-    //       this.router.navigate(['/dashboard']);
-    //     } else {
-    //       // Exibir mensagem de erro de autenticação
-    //       console.log('Email ou senha incorretos');
-    //     }
-    //   });
-    // } else {
-    //   console.log('Formulário inválido');
-    // }
-    this.router.navigate(['/dashboard'])
+      // Chamando o método login do AuthService
+      this.authService.login(username, senha).subscribe((loggedIn: boolean) => {
+        if (loggedIn) {
+          // Redirecionando para a página principal após o login
+          this.router.navigate(['/dashboard']);
+          console.log(loggedIn)
+        } else {
+          // Exibir mensagem de erro de autenticação
+          console.log('Usuário ou senha incorretos');
+        }
+      });
+    } else {
+      console.log('Formulário inválido');
+    }
+    // this.router.navigate(['/dashboard'])
   }
 }
