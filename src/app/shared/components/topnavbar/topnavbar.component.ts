@@ -38,4 +38,9 @@ export class TopnavbarComponent{
   onNavTo(path: string) {
     this.router.navigate([path])
   }
+
+  onLogout(){
+    this.auth.logout()
+    this.router.navigate(['/'])
+  }
 }

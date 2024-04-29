@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CachorroService } from '../../services/cachorro.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
-import { SessionStorageService } from '../../services/session-storage.service';
+import { CachorroService } from '../../services/cachorro.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,14 +20,13 @@ export class DashboardComponent {
     private cachorroService: CachorroService,
     private router: Router,
     private auth: AuthService,
-    private sessionStorageService: SessionStorageService
   ) { }
 
-  async ngOnInit() {
-    const username = await this.sessionStorageService.getUsername();
-    const id = await this.sessionStorageService.getUserId();
+  ngOnInit() {
+    const username =  this.auth.getUsername()
+    const id =  this.auth.getUserId()
 
-    if (username !== null && id !== null) {
+    if (username && id ) {
       this.usuario = username;
       this.id = id;
       this.getCachorrosServidor()

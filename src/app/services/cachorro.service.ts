@@ -57,6 +57,7 @@ export class CachorroService {
           }))
     }
     const token = this.authService.getToken()
+    console.log(token)
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
     let params = new HttpParams()
     params = params.append('usuario', usuario_id)
@@ -92,7 +93,7 @@ export class CachorroService {
   changeStatus(id: number, status: boolean) {
     const token = this.authService.getToken()
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
-    return this.http.patch(`${this.apiUrl}/cachorros/${id}/`, { status: status, headers }).pipe(
+    return this.http.patch(`${this.apiUrl}/cachorros/${id}/`, { status: status }, { headers }).pipe(
       catchError((error: any) => {
         console.error('Erro na requisição patchCachorro:', error);
         return throwError(error);

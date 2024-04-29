@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { RacaService } from '../../services/raca.service';
-import { Raca } from '../../interfaces/raca.interface';
-import { Observable, map } from 'rxjs';
-import { CachorroService } from '../../services/cachorro.service';
-import { Cachorro } from '../../interfaces/cachorro';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SessionStorageService } from '../../services/session-storage.service';
+import { Observable } from 'rxjs';
+import { Cachorro } from '../../interfaces/cachorro';
+import { Raca } from '../../interfaces/raca.interface';
+import { CachorroService } from '../../services/cachorro.service';
+import { RacaService } from '../../services/raca.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-criar-cachorro',
@@ -14,12 +14,6 @@ import { SessionStorageService } from '../../services/session-storage.service';
   styleUrl: './criar-cachorro.component.scss'
 })
 export class CriarCachorroComponent {
-
-  // racas = [
-  //   {nome: 'Sem raça definida - SRD', id: 1},
-  //   {nome: 'Poodle', id: 2},
-  //   {nome: 'Pitbul', id: 3}
-  // ]
 
   cachorroForm!: FormGroup;
   selectedFileName: string | null = null;
@@ -35,21 +29,20 @@ export class CriarCachorroComponent {
     private cachorroService: CachorroService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private sessionStorageService: SessionStorageService
+    private auth: AuthService
   ) {
-  }
-
-  async ngOnInit() {
-
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
     if (this.tipo === 'buscado') {
-      const id = await this.sessionStorageService.getUserId();
+      const id = this.auth.getUserId();
       this.usuario = id ? parseInt(id, 10) : 1
       if (id === null) {
         this.router.navigate(['/login']);
-      }
+      } ;
     }
+  }
+
+  ngOnInit() {
 
     this.cachorroForm = this.fb.group({
       nome: [this.tipo === 'buscado' ? '' : null, this.tipo === 'buscado' ? Validators.required : null],
