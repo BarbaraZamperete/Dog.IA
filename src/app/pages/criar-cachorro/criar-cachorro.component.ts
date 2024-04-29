@@ -41,13 +41,6 @@ export class CriarCachorroComponent {
 
   async ngOnInit() {
 
-    // if (sessionStorage && sessionStorage.getItem('userId') !== null) {
-    //   const userId = sessionStorage.getItem('userId');
-    //   if (userId) {
-    //     this.usuario = parseInt(userId, 10); // Parse para número
-    //   }
-    // }
-
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
     if (this.tipo === 'buscado') {

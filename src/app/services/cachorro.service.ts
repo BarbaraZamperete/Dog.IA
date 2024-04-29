@@ -94,7 +94,7 @@ export class CachorroService {
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
     return this.http.patch(`${this.apiUrl}/cachorros/${id}/`, { status: status, headers }).pipe(
       catchError((error: any) => {
-        console.error('Erro na requisição postCachorro:', error);
+        console.error('Erro na requisição patchCachorro:', error);
         return throwError(error);
       })
     )

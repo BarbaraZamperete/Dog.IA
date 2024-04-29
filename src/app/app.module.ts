@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CriarCachorroComponent } from './pages/criar-cachorro/criar-cachorro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientXsrfModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { CachorrosComponent } from './pages/cachorros/cachorros.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
@@ -33,7 +33,8 @@ import { SobreComponent } from './pages/sobre/sobre.component';
     AppRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientXsrfModule.withOptions({ cookieName: 'csrftoken', headerName: 'X-CSRFToken' })
   ],
   providers: [
     provideClientHydration(),

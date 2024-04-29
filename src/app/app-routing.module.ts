@@ -8,7 +8,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
-import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

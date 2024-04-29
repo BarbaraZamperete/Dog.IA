@@ -22,20 +22,7 @@ export class DashboardComponent {
     private router: Router,
     private auth: AuthService,
     private sessionStorageService: SessionStorageService
-  ) {
-    // const id = auth.getUserId()
-    // const username = auth.getUsername();
-    // if (username !== null) {
-    //   this.usuario = username; // Esta atribuição agora é segura, pois garantimos que username não é nulo
-    // }
-    // if (id !== null){
-    //   this.id = id
-    // }
-    // console.log(id, username)
-
-
-    // this.getCachorrosServidor()
-  }
+  ) { }
 
   async ngOnInit() {
     const username = await this.sessionStorageService.getUsername();

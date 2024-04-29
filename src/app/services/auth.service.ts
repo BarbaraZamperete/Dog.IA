@@ -93,7 +93,7 @@ export class AuthService {
             console.error('Erro ao verificar token:', error);
           });
       }
-    }catch(error){
+    } catch (error) {
       console.error('Erro ao acessar o sessionStorage:', error);
     }
 
@@ -106,5 +106,16 @@ export class AuthService {
     sessionStorage.removeItem(this.userIdKey);
     sessionStorage.removeItem(this.usernameKey);
     this.loggedIn.next(false);
+  }
+
+  getCSRFToken() {
+    const csrfCookie = document.cookie.split(';')
+      .find(cookie => cookie.trim().startsWith('csrftoken='));
+    if (!csrfCookie) {
+      console.error('CSRF token não encontrado.');
+      return '';
+    }
+    console.log(csrfCookie)
+    return csrfCookie.split('=')[1];
   }
 }
