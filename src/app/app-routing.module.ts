@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cadastro/usuario', component: CriarUsuarioComponent },
   { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate:[authGuard] },
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'resultados/:id', component: ResultadosComponent },
   { path: 'cachorros', component: CachorrosComponent },
   { path: 'sobre', component: SobreComponent }

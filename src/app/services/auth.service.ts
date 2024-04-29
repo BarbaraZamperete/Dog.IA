@@ -14,23 +14,23 @@ export class AuthService {
   private token: string | null = null;
 
   constructor(private http: HttpClient) {
-    if (typeof sessionStorage !== 'undefined') {
-      // Verifica se já existe um token armazenado no sessionStorage ao inicializar o serviço
-      const storedToken = sessionStorage.getItem('token');
-      if (storedToken) {
-        this.token = storedToken;
-        this.loggedIn.next(true);
-      }
-    }
+    // if (typeof sessionStorage !== 'undefined') {
+    //   // Verifica se já existe um token armazenado no sessionStorage ao inicializar o serviço
+    //   const storedToken = sessionStorage.getItem('token');
+    //   if (storedToken) {
+    //     this.token = storedToken;
+    //     this.loggedIn.next(true);
+    //   }
+    // }
+
+    this.checkLoginStatus()
   }
 
   login(username: string, senha: string): Observable<boolean> {
     return this.http.post<any>(`http://localhost:8000/api-user-login/`, { username: username, password: senha }).pipe(
       map(response => {
         if (response && response.token) {
-          sessionStorage.setItem(this.authTokenKey, response.token);
-          sessionStorage.setItem(this.userIdKey, response.id);
-          sessionStorage.setItem(this.usernameKey, response.username);
+          this.setCredentials(response.token, response.username, response.id)
           this.loggedIn.next(true);
           return true;
         } else {
@@ -51,22 +51,54 @@ export class AuthService {
 
   }
 
-  setCredentials(token: string, username: string, id: string){
+  setCredentials(token: string, username: string, id: string) {
     sessionStorage.setItem(this.authTokenKey, token);
     sessionStorage.setItem(this.userIdKey, id);
     sessionStorage.setItem(this.usernameKey, username);
   }
 
   getUserId(): string | null {
+    this.checkLoginStatus()
     return sessionStorage.getItem(this.userIdKey);
   }
 
   getUsername(): string | null {
+    this.checkLoginStatus()
     return sessionStorage.getItem(this.usernameKey);
   }
 
   isLoggedIn(): boolean {
+    this.checkLoginStatus()
     return this.loggedIn.getValue();
+  }
+
+  checkLoginStatus() {
+    try {
+      const token = sessionStorage.getItem('token');
+      const userId = sessionStorage.getItem('userId');
+      if (token && userId) {
+        // Verificar se o token e o userId são válidos na API
+        this.http.post<any>('http://localhost:8000/api-token-verify/', { token, userId })
+          .subscribe(response => {
+            if (response.valid) {
+              this.loggedIn.next(true); // Definir como logado se a verificação for bem-sucedida
+            } else {
+              // Limpar sessionStorage e definir como não logado se a verificação falhar
+              sessionStorage.removeItem(this.authTokenKey);
+              sessionStorage.removeItem(this.userIdKey);
+              sessionStorage.removeItem(this.usernameKey);
+              this.loggedIn.next(false);
+            }
+          }, error => {
+            console.error('Erro ao verificar token:', error);
+          });
+      }
+    }catch(error){
+      console.error('Erro ao acessar o sessionStorage:', error);
+    }
+
+
+
   }
 
   logout(): void {

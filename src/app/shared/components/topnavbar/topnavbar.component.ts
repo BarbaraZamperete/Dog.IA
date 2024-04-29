@@ -1,6 +1,7 @@
 import { Component, Input, AfterViewChecked, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
@@ -17,8 +18,16 @@ export class TopnavbarComponent{
   logado: boolean = false
   home: boolean = false
 
-  constructor(private location: Location, private router: Router) {
+  constructor(
+    private location: Location,
+    private router: Router,
+    private auth: AuthService
+  ) {
     this.location.path() == '' ? this.home = true : this.home = false;
+
+    this.logado = auth.isLoggedIn()
+    console.log(this.logado)
+
   }
 
 

@@ -6,6 +6,7 @@ import { Observable, map } from 'rxjs';
 import { CachorroService } from '../../services/cachorro.service';
 import { Cachorro } from '../../interfaces/cachorro';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-criar-cachorro',
@@ -33,25 +34,28 @@ export class CriarCachorroComponent {
     private racaService: RacaService,
     private cachorroService: CachorroService,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private sessionStorageService: SessionStorageService
   ) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
 
-    if (sessionStorage && sessionStorage.getItem('userId') !== null) {
-      const userId = sessionStorage.getItem('userId');
-      if (userId) {
-        this.usuario = parseInt(userId, 10); // Parse para número
-      }
-    }
+    // if (sessionStorage && sessionStorage.getItem('userId') !== null) {
+    //   const userId = sessionStorage.getItem('userId');
+    //   if (userId) {
+    //     this.usuario = parseInt(userId, 10); // Parse para número
+    //   }
+    // }
 
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
-    if(this.tipo == 'buscado'){
-
-      this.router.navigate(['/login'])
-      // window.alert("Você você precisa estar logado para adicionar um cachorro perdido")
+    if (this.tipo === 'buscado') {
+      const id = await this.sessionStorageService.getUserId();
+      this.usuario = id ? parseInt(id, 10) : 1
+      if (id === null) {
+        this.router.navigate(['/login']);
+      }
     }
 
     this.cachorroForm = this.fb.group({
@@ -65,7 +69,7 @@ export class CriarCachorroComponent {
 
   }
 
-  getRacasFromService(){
+  getRacasFromService() {
     this.racas$ = this.racaService.getRacas()
   }
 
@@ -85,7 +89,7 @@ export class CriarCachorroComponent {
         raca: +this.cachorroForm.get('raca')?.value || 1,
         genero: +this.cachorroForm.get('genero')?.value || 1,
         usuario: this.tipo == 'avistado' ? 1 : this.usuario,
-        tipo: this.tipo=='buscado'? 1 : 2,
+        tipo: this.tipo == 'buscado' ? 1 : 2,
         descricao: this.cachorroForm.get('descricao')?.value || ''
       }
       this.createCachorro(cachorroObj)
