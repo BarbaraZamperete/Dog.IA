@@ -14,7 +14,6 @@ export class CriarUsuarioComponent {
 
   usuarioForm!: FormGroup;
 
-  isEditable = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -42,10 +41,7 @@ export class CriarUsuarioComponent {
           telefone: this.usuarioForm.value.telefone,
           username: this.usuarioForm.value.username
         };
-        let user
         this.usuarioService.insertUser(usuarioData).subscribe(response => {
-          console.log('Resposta da requisição POST:', response);
-          console.log(response)
           this.authService.setCredentials(response.token, response.username, response.user_id)
           let param: NavigationExtras = {
             queryParams: { id: response.id }

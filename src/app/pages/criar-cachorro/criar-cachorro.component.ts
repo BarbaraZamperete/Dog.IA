@@ -76,11 +76,9 @@ export class CriarCachorroComponent {
       if (this.tipo === 'buscado') {
         const id = this.auth.getUserId();
         this.usuario = id ? parseInt(id, 10) : 1
-        console.log(this.usuario, id)
         if (id) {
           this.createCachorro(cachorroObj)
         }else{
-          console.log("Kjhgghjklç")
           this.router.navigate(['/login']);
         }
       }else{
@@ -96,7 +94,6 @@ export class CriarCachorroComponent {
     this.loading = true
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response: any) => {
-        console.log('Resposta da requisição POST:', response);
         const id = response.cachorro
         let param: NavigationExtras = {
           queryParams: { id: this.usuario }

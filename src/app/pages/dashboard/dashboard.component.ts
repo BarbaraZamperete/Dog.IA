@@ -23,7 +23,6 @@ export class DashboardComponent {
     private auth: AuthService,
   ) {
     this.id = this.activedRoute.snapshot.queryParamMap.get('id');
-    console.log(this.id)
   }
 
   ngOnInit() {

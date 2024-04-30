@@ -35,7 +35,6 @@ export class LoginComponent {
             queryParams: { id: loggedIn.id }
           };
           this.router.navigate(['/dashboard'], param);
-          console.log(loggedIn)
         } else {
           // Exibir mensagem de erro de autenticação
           console.log('Usuário ou senha incorretos');
@@ -44,6 +43,5 @@ export class LoginComponent {
     } else {
       console.log('Formulário inválido');
     }
-    // this.router.navigate(['/dashboard'])
   }
 }

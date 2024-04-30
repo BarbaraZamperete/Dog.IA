@@ -18,7 +18,6 @@ export class CachorroService {
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
     return this.http.post(`${this.apiUrl}/cachorros/adicionar/`, cachorroData, {headers}).pipe(
       switchMap((cachorro: any) => {
-        console.log(cachorro);
         const imagemObj = new FormData()
         imagemObj.append('cachorro', cachorro.id)
         imagemObj.append('caminho', imagem)
@@ -57,7 +56,6 @@ export class CachorroService {
           }))
     }
     const token = this.authService.getToken()
-    console.log(token)
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
     let params = new HttpParams()
     params = params.append('usuario', usuario_id)
@@ -113,7 +111,6 @@ export class CachorroService {
 
   getResultsByAvistado(id: string) {
     return this.http.get(`${this.apiUrl}/combinacoes/avistado/${id}`).pipe(
-      // map(res=> console.log(res)),
       catchError((error: any) => {
         console.error('Erro na requisição getCachorro:', error);
         return throwError(error);

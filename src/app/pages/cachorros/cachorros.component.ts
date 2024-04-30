@@ -20,9 +20,7 @@ export class CachorrosComponent {
 
   getCachorros(){
     this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser()
-    // this.cachorroService.getCachorrosBuscadosByUser().forEach(res => console.log(res))
     this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser()
-    // this.cachorroService.getCachorrosAvistadosByUser().forEach(res => console.log(res))
   }
 
 }

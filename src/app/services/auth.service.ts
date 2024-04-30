@@ -16,7 +16,6 @@ export class AuthService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) {
 
-    // this.checkLoginStatus()
   }
 
   login(username: string, senha: string): Observable<any> {
