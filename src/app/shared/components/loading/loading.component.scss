@@ -14,11 +14,14 @@
   justify-content: center;
   align-items: center;
 
-  h3{
-    margin-top: 60px;
+  .text{
+    margin-top: 80px;
     max-width: 160px;
-    text-wrap: wrap;
-    text-align: center;
+    h3{
+      text-wrap: wrap;
+      text-align: center;
+    }
+
   }
 }
 
