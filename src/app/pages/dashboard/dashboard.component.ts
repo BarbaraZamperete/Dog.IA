@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { CachorroService } from '../../services/cachorro.service';
@@ -19,16 +19,18 @@ export class DashboardComponent {
   constructor(
     private cachorroService: CachorroService,
     private router: Router,
+    private activedRoute: ActivatedRoute,
     private auth: AuthService,
-  ) { }
+  ) {
+    this.id = this.activedRoute.snapshot.queryParamMap.get('id');
+    console.log(this.id)
+  }
 
   ngOnInit() {
     const username =  this.auth.getUsername()
-    const id =  this.auth.getUserId()
 
-    if (username && id ) {
+    if (username && this.id) {
       this.usuario = username;
-      this.id = id;
       this.getCachorrosServidor()
     } else {
       // Redirecionar para outra página se username ou id forem nulos

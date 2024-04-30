@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -28,10 +28,13 @@ export class LoginComponent {
       const senha = this.loginForm.value.senha;
 
       // Chamando o método login do AuthService
-      this.authService.login(username, senha).subscribe((loggedIn: boolean) => {
-        if (loggedIn) {
+      this.authService.login(username, senha).subscribe((loggedIn: any) => {
+        if (loggedIn.loging) {
           // Redirecionando para a página principal após o login
-          this.router.navigate(['/dashboard']);
+          let param: NavigationExtras = {
+            queryParams: { id: loggedIn.id }
+          };
+          this.router.navigate(['/dashboard'], param);
           console.log(loggedIn)
         } else {
           // Exibir mensagem de erro de autenticação

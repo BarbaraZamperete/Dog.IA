@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { AuthService } from '../../services/auth.service';
@@ -46,7 +46,10 @@ export class CriarUsuarioComponent {
         this.usuarioService.insertUser(usuarioData).subscribe(response => {
           console.log('Resposta da requisição POST:', response);
           this.authService.setCredentials(response.token, response.username, response.id)
-          this.router.navigate(['/cadastro/cachorro/buscado']);
+          let param: NavigationExtras = {
+            queryParams: { id: response.id }
+          };
+          this.router.navigate(['/cadastro/cachorro/buscado'],param);
         }, error => {
           console.error('Erro na requisição POST:', error);
         })

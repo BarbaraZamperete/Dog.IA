@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cachorro } from '../../interfaces/cachorro';
 import { Raca } from '../../interfaces/raca.interface';
@@ -33,13 +33,6 @@ export class CriarCachorroComponent {
   ) {
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
-    if (this.tipo === 'buscado') {
-      const id = this.auth.getUserId();
-      this.usuario = id ? parseInt(id, 10) : 1
-      if (id === null) {
-        this.router.navigate(['/login']);
-      } ;
-    }
   }
 
   ngOnInit() {
@@ -69,6 +62,7 @@ export class CriarCachorroComponent {
   }
 
   onSubmit() {
+
     if (this.cachorroForm.valid && this.file) {
       const cachorroObj = {
         nome: this.cachorroForm.get('nome')?.value || '',
@@ -78,7 +72,21 @@ export class CriarCachorroComponent {
         tipo: this.tipo == 'buscado' ? 1 : 2,
         descricao: this.cachorroForm.get('descricao')?.value || ''
       }
-      this.createCachorro(cachorroObj)
+
+      if (this.tipo === 'buscado') {
+        const id = this.auth.getUserId();
+        this.usuario = id ? parseInt(id, 10) : 1
+        console.log(this.usuario, id)
+        if (id) {
+          this.createCachorro(cachorroObj)
+        }else{
+          console.log("Kjhgghjklç")
+          this.router.navigate(['/login']);
+        }
+      }else{
+        this.createCachorro(cachorroObj)
+      }
+
     } else {
       console.log('Formulário inválido ou arquivo não selecionado');
     }
@@ -90,7 +98,10 @@ export class CriarCachorroComponent {
       (response: any) => {
         console.log('Resposta da requisição POST:', response);
         const id = response.cachorro
-        this.tipo == 'buscado' ? this.router.navigate(['/dashboard']) : this.router.navigate([`/resultados/${id}`]);
+        let param: NavigationExtras = {
+          queryParams: { id: this.usuario }
+        };
+        this.tipo == 'buscado' ? this.router.navigate(['/dashboard'], param) : this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {
         console.error('Erro na requisição POST:', error);

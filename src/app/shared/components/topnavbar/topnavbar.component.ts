@@ -26,7 +26,6 @@ export class TopnavbarComponent{
     this.location.path() == '' ? this.home = true : this.home = false;
 
     this.logado = auth.isLoggedIn()
-    console.log(this.logado)
 
   }
 

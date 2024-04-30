@@ -19,16 +19,16 @@ export class AuthService {
     // this.checkLoginStatus()
   }
 
-  login(username: string, senha: string): Observable<boolean> {
+  login(username: string, senha: string): Observable<any> {
     return this.http.post<any>(`http://localhost:8000/api-user-login/`, { username: username, password: senha }).pipe(
       map(response => {
         if (response && response.token) {
           this.setCredentials(response.token, response.username, response.id)
           this.loggedIn.next(true);
-          return true;
+          return {id: response.id, loging: true};
         } else {
           this.loggedIn.next(false);
-          return false;
+          return {id: '', loging: false};
         }
       })
     );
