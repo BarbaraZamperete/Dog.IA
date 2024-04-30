@@ -4,6 +4,8 @@ import { CachorroService } from '../../../services/cachorro.service';
 import { UsuarioService } from '../../../services/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../snackbar/snackbar.component';
 
 @Component({
   selector: 'app-card-cachorro',
@@ -22,7 +24,8 @@ export class CardCachorroComponent {
     private router: Router,
     private cachorroService: CachorroService,
     private usuarioService: UsuarioService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
     this.dashboard = this.router.url=="/dashboard" ? true : false;
   }
@@ -54,8 +57,18 @@ export class CardCachorroComponent {
   changeStatus(id: number, nome: string){
     const confirmed = confirm(`Deseja realmente alterar o status de ${nome} para encontrado?`)
     if(confirmed){
-      this.cachorroService.changeStatus(id, false).subscribe(res => window.location.reload())
+      this.cachorroService.changeStatus(id, false).subscribe(res => {
+        window.location.reload()
+        this.openSnackBar("Cachorro alterado para Encontrado", "success")
+      })
     }
 
+  }
+
+  openSnackBar(mesage:string, tipo:string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: {message: mesage, tipo: tipo},
+      duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
+    });
   }
 }

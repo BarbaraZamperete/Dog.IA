@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { CachorroService } from '../../services/cachorro.service';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +23,7 @@ export class DashboardComponent {
     private router: Router,
     private activedRoute: ActivatedRoute,
     private auth: AuthService,
+    private snackBar: MatSnackBar
   ) {
     this.id = this.activedRoute.snapshot.queryParamMap.get('id');
   }
@@ -34,6 +37,7 @@ export class DashboardComponent {
     } else {
       // Redirecionar para outra página se username ou id forem nulos
       this.router.navigate(['/login']);
+      this.openSnackBar("Você precisar estar logado para acessar", "error")
     }
   }
 
@@ -44,6 +48,13 @@ export class DashboardComponent {
 
   onAdicionar(tipo: string) {
     this.router.navigate(['/cadastro/cachorro', tipo])
+  }
+
+  openSnackBar(mesage:string, tipo:string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: {message: mesage, tipo: tipo},
+      duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
+    });
   }
 
 }

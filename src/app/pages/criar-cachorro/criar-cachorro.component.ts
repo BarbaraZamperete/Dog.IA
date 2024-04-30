@@ -7,6 +7,8 @@ import { Raca } from '../../interfaces/raca.interface';
 import { CachorroService } from '../../services/cachorro.service';
 import { RacaService } from '../../services/raca.service';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-criar-cachorro',
@@ -29,7 +31,8 @@ export class CriarCachorroComponent {
     private cachorroService: CachorroService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private auth: AuthService
+    private auth: AuthService,
+    private snackBar: MatSnackBar
   ) {
     this.tipo = this.activeRoute.snapshot.paramMap.get('tipo') || "buscado"
 
@@ -80,13 +83,14 @@ export class CriarCachorroComponent {
           this.createCachorro(cachorroObj)
         }else{
           this.router.navigate(['/login']);
+          this.openSnackBar("Faça o login para adicionar um cachorro perdido", "error")
         }
       }else{
         this.createCachorro(cachorroObj)
       }
 
     } else {
-      console.log('Formulário inválido ou arquivo não selecionado');
+      this.openSnackBar("Formulário inválido ou arquivo não selecionado", "warn")
     }
   }
 
@@ -101,12 +105,20 @@ export class CriarCachorroComponent {
         this.tipo == 'buscado' ? this.router.navigate(['/dashboard'], param) : this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {
-        console.error('Erro na requisição POST:', error);
+        this.openSnackBar("Erro no servidor ao criar cachorro", "warn")
       },
       () => {
         this.loading = false; // Define o estado de carregamento como false após a requisição
       }
     );
+  }
+
+
+  openSnackBar(mesage:string, tipo:string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: {message: mesage, tipo: tipo},
+      duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
+    });
   }
 
 }

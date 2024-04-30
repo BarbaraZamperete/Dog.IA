@@ -4,6 +4,8 @@ import { NavigationExtras, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-criar-usuario',
@@ -18,7 +20,8 @@ export class CriarUsuarioComponent {
     private fb: FormBuilder,
     private router: Router,
     private usuarioService: UsuarioService,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +36,6 @@ export class CriarUsuarioComponent {
 
   onSubmit() {
     if (this.usuarioForm.valid) {
-      console.log(this.usuarioForm.value);
       if (this.usuarioForm.controls['senha'].value == this.usuarioForm.controls['confirmarSenha'].value) {
         const usuarioData: Usuario = {
           first_name: this.usuarioForm.value.nomeTutor,
@@ -48,15 +50,22 @@ export class CriarUsuarioComponent {
           };
           this.router.navigate(['/cadastro/cachorro/buscado'],param);
         }, error => {
-          console.error('Erro na requisição POST:', error);
+          this.openSnackBar("Erro no servidor ao criar usuário", "error")
         })
       } else {
-        console.log('As senhas não são iguais');
+        this.openSnackBar("As senhas não são iguais", "error")
       }
 
     } else {
-      console.log('Formulário inválido');
+      this.openSnackBar("Formulário inválido", "error")
     }
 
+  }
+
+  openSnackBar(mesage:string, tipo:string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: {message: mesage, tipo: tipo},
+      duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
+    });
   }
 }
