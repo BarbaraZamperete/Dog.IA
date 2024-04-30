@@ -48,6 +48,7 @@ export class CriarUsuarioComponent {
           let param: NavigationExtras = {
             queryParams: { id: response.id }
           };
+          this.openSnackBar("Usuário criado com sucesso", "success")
           this.router.navigate(['/cadastro/cachorro/buscado'],param);
         }, error => {
           this.openSnackBar("Erro no servidor ao criar usuário", "error")

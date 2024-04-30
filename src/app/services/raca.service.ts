@@ -15,11 +15,7 @@ export class RacaService {
 
   getRacas() {
     return this.http.get(`${this.apiUrl}/racas/`).pipe(
-      map((response: any) => response as Raca[]),
-      catchError((error: any) => {
-        console.error('Erro na requisição getRacas:', error);
-        return throwError(error);
-      })
+      map((response: any) => response as Raca[])
     );
   }
 }

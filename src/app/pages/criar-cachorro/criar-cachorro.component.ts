@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Cachorro } from '../../interfaces/cachorro';
 import { Raca } from '../../interfaces/raca.interface';
 import { CachorroService } from '../../services/cachorro.service';
@@ -52,7 +52,11 @@ export class CriarCachorroComponent {
   }
 
   getRacasFromService() {
-    this.racas$ = this.racaService.getRacas()
+    this.racas$ = this.racaService.getRacas().pipe(
+      catchError((error: any) => {
+        this.openSnackBar("Erro ao carregar raças", "error")
+        return throwError(error);
+      }))
   }
 
   onFileSelected(input: HTMLInputElement | null) {
@@ -81,11 +85,11 @@ export class CriarCachorroComponent {
         this.usuario = id ? parseInt(id, 10) : 1
         if (id) {
           this.createCachorro(cachorroObj)
-        }else{
+        } else {
           this.router.navigate(['/login']);
           this.openSnackBar("Faça o login para adicionar um cachorro perdido", "error")
         }
-      }else{
+      } else {
         this.createCachorro(cachorroObj)
       }
 
@@ -102,6 +106,7 @@ export class CriarCachorroComponent {
         let param: NavigationExtras = {
           queryParams: { id: this.usuario }
         };
+        this.openSnackBar("Cachorro adicionado com sucesso", "success")
         this.tipo == 'buscado' ? this.router.navigate(['/dashboard'], param) : this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {
@@ -114,9 +119,9 @@ export class CriarCachorroComponent {
   }
 
 
-  openSnackBar(mesage:string, tipo:string) {
+  openSnackBar(mesage: string, tipo: string) {
     this.snackBar.openFromComponent(SnackbarComponent, {
-      data: {message: mesage, tipo: tipo},
+      data: { message: mesage, tipo: tipo },
       duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
     });
   }
