@@ -69,6 +69,8 @@ export class CriarCachorroComponent {
   }
 
   onSubmit() {
+    const id = this.auth.getUserId();
+    this.usuario = id ? parseInt(id, 10) : 1
 
     if (this.cachorroForm.valid && this.file) {
       const cachorroObj = {
@@ -81,8 +83,6 @@ export class CriarCachorroComponent {
       }
 
       if (this.tipo === 'buscado') {
-        const id = this.auth.getUserId();
-        this.usuario = id ? parseInt(id, 10) : 1
         if (id) {
           this.createCachorro(cachorroObj)
         } else {
