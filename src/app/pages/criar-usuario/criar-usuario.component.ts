@@ -45,7 +45,8 @@ export class CriarUsuarioComponent {
         let user
         this.usuarioService.insertUser(usuarioData).subscribe(response => {
           console.log('Resposta da requisição POST:', response);
-          this.authService.setCredentials(response.token, response.username, response.id)
+          console.log(response)
+          this.authService.setCredentials(response.token, response.username, response.user_id)
           let param: NavigationExtras = {
             queryParams: { id: response.id }
           };
