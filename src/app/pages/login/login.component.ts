@@ -35,26 +35,30 @@ export class LoginComponent {
       const senha = this.loginForm.value.senha;
 
       // Chamando o método login do AuthService
-      this.authService.login(username, senha).subscribe((loggedIn: any) => {
-        if (loggedIn.loging) {
-          // Redirecionando para a página principal após o login
-          let param: NavigationExtras = {
-            queryParams: { id: loggedIn.id }
-          };
-          this.router.navigate(['/dashboard'], param);
-        } else {
-          // Exibir mensagem de erro de autenticação
+      this.authService.login(username, senha).subscribe(
+        (loggedIn: any) => {
+          if (loggedIn.loging) {
+            // Redirecionando para a página principal após o login
+            let param: NavigationExtras = {
+              queryParams: { id: loggedIn.id }
+            };
+            this.router.navigate(['/dashboard'], param);
+          } else {
+            // Exibir mensagem de erro de autenticação
+            this.openSnackBar("Login não realizado", "error")
+          }
+        },
+        (error) => {
           this.openSnackBar("Usuário ou senha incorretos", "error")
-        }
-      });
+        });
     } else {
       this.openSnackBar("Formulário inválido", "info")
     }
   }
 
-  openSnackBar(mesage:string, tipo:string) {
+  openSnackBar(mesage: string, tipo: string) {
     this.snackBar.openFromComponent(SnackbarComponent, {
-      data: {message: mesage, tipo: tipo},
+      data: { message: mesage, tipo: tipo },
       duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
     });
   }
