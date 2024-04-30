@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { SnackbarComponent } from '../../shared/components/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,12 @@ export class LoginComponent {
   loginForm!: FormGroup;
 
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -37,11 +44,18 @@ export class LoginComponent {
           this.router.navigate(['/dashboard'], param);
         } else {
           // Exibir mensagem de erro de autenticação
-          console.log('Usuário ou senha incorretos');
+          this.openSnackBar("Usuário ou senha incorretos", "error")
         }
       });
     } else {
-      console.log('Formulário inválido');
+      this.openSnackBar("Formulário inválido", "info")
     }
+  }
+
+  openSnackBar(mesage:string, tipo:string) {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: {message: mesage, tipo: tipo},
+      duration: 2000, // Tempo em milissegundos para o Snackbar desaparecer
+    });
   }
 }

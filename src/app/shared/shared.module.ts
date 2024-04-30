@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 
 
@@ -15,7 +16,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     FooterComponent,
     CardCachorroComponent,
     LoadingComponent,
-    DialogComponent
+    DialogComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     AppMaterialModule,
     FooterComponent,
     CardCachorroComponent,
-    LoadingComponent
+    LoadingComponent,
+    SnackbarComponent
   ]
 })
 export class SharedModule { }

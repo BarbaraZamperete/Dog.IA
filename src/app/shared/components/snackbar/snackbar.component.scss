@@ -1,0 +1,29 @@
+@import "../../../../assets/color.scss";
+
+
+::ng-deep .mdc-snackbar__label{
+  padding: 0;
+}
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface{
+  background-color: transparent;
+  padding: 0;
+
+  .error, .success, .info{
+    padding: 14px 8px 14px 16px;
+    height: inherit;
+    width: inherit;
+    border-radius: 4px;
+  }
+
+  .error{
+    background-color: $error;
+  }
+
+  .success{
+    background-color: $success;
+  }
+
+  .info{
+    background-color: $warn
+  }
+}
