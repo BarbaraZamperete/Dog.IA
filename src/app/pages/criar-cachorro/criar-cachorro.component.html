@@ -32,7 +32,7 @@
             <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
               <mat-label>Raça</mat-label>
               <mat-select matInput formControlName="raca" placeholder="Raça">
-                <mat-option *ngFor="let raca of racas" [value]="raca.id">{{raca.nome}}, {{raca.id}}</mat-option>
+                <mat-option *ngFor="let raca of racas" [value]="raca.id">{{raca.nome}}</mat-option>
               </mat-select>
             </mat-form-field>
 
