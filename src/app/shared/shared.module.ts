@@ -7,6 +7,7 @@ import { CardCachorroComponent } from './components/card-cachorro/card-cachorro.
 import { LoadingComponent } from './components/loading/loading.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 
 
@@ -17,7 +18,8 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
     CardCachorroComponent,
     LoadingComponent,
     DialogComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
+import { PaginaNaoEncontradaComponent } from './shared/components/pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'resultados/:id', component: ResultadosComponent },
   { path: 'cachorros', component: CachorrosComponent },
-  { path: 'sobre', component: SobreComponent }
+  { path: 'sobre', component: SobreComponent },
+  { path: '**', component: PaginaNaoEncontradaComponent }
 ];
 
 

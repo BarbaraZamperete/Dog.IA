@@ -1,0 +1,26 @@
+@import "../../../../assets/color.scss";
+
+.pag-container{
+  background-color: $main-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  img{
+    height: 150px;
+    margin: 20px
+  }
+
+  h3{
+    color: $dark-white;
+    font-weight: 600;
+  }
+
+  a{
+    color: $dark-white;
+    text-decoration: underline;
+  }
+}
