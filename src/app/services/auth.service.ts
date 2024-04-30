@@ -45,6 +45,7 @@ export class AuthService {
   }
 
   setCredentials(token: string, username: string, id: string) {
+    this.logout()
     this.cookieService.set(this.authTokenKey, token); // Salva o token no cookie
     this.cookieService.set(this.userIdKey, id); // Salva o ID do usuário no cookie
     this.cookieService.set(this.usernameKey, username); // Salva o nome de usuário no cookie
