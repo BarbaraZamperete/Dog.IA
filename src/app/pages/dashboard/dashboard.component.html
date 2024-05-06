@@ -7,33 +7,19 @@
       </mat-card-header>
       <mat-card-content class="content">
 
-        <section *ngIf="cachorrosBuscados$ | async as cachorros" class="cachorros-lista">
-          <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
+        <section class="cachorros-lista">
+          <div class="cachorros-lista-titulo">
             Meus cachorros perdidos
 
-            <button (click)="onAdicionar('buscado')" mat-icon-button class="nav-button">
+            <button (click)="onAdicionar()" mat-icon-button class="nav-button">
               <span class="material-symbols-outlined">add_circle</span>
             </button>
 
           </div>
-          <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
+          <app-card-cachorro *ngIf="cachorrosBuscados$ | async as cachorros" [cachorros]="cachorros" [acao]="'resultados'"
             [botaoNome]="'Resultados'"></app-card-cachorro>
         </section>
 
-        <span class="space"></span>
-
-        <section *ngIf="cachorrosAvistados$ | async as cachorros" class="cachorros-lista">
-          <div *ngIf="cachorros.length > 0" class="cachorros-lista-titulo">
-            Meus cachorros avistados
-
-            <button (click)="onAdicionar('avistado')" mat-icon-button class="nav-button">
-              <span class="material-symbols-outlined">add_circle</span>
-            </button>
-
-          </div>
-          <app-card-cachorro [cachorros]="cachorros" [acao]="'resultados'"
-            [botaoNome]="'Resultados'"></app-card-cachorro>
-        </section>
 
       </mat-card-content>
     </mat-card>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { CachorroService } from '../../services/cachorro.service';
@@ -43,11 +43,14 @@ export class DashboardComponent {
 
   getCachorrosServidor() {
     this.cachorrosBuscados$ = this.cachorroService.getCachorrosBuscadosByUser(this.id ? this.id : '1')
-    this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser(this.id ? this.id : '1')
+    // this.cachorrosAvistados$ = this.cachorroService.getCachorrosAvistadosByUser(this.id ? this.id : '1')
   }
 
-  onAdicionar(tipo: string) {
-    this.router.navigate(['/cadastro/cachorro', tipo])
+  onAdicionar() {
+    let param: NavigationExtras = {
+      queryParams: { id: this.id }
+    };
+    this.router.navigate(['/cadastro/cachorro/buscado'], param)
   }
 
   openSnackBar(mesage:string, tipo:string) {

@@ -44,7 +44,7 @@
       </div>
       <mat-card-content>
         <ul>
-          <li class="nome">{{tipo == 1 ? cachorro.id_avistado.nome : cachorro.id_buscado.nome}}</li>
+          <li class="nome">{{tipo == 1 ? cachorro.id_avistado.nome : ""}}</li>
           <li>{{tipo == 1 ? cachorro.id_avistado.raca_nome : cachorro.id_buscado.raca_nome}}</li>
           <li>{{tipo == 1 ? cachorro.id_avistado.genero_display : cachorro.id_buscado.genero_display}}</li>
           <span class="space"></span>
@@ -53,7 +53,7 @@
       </mat-card-content>
     </ng-container>
 
-    <mat-card-actions *ngIf="tipo!=1" align="end">
+    <mat-card-actions align="end">
       <button (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
     </mat-card-actions>
   </mat-card>
