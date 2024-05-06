@@ -9,11 +9,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
 import { PaginaNaoEncontradaComponent } from './shared/components/pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { CriarCachorroAvistadoComponent } from './pages/criar-cachorro-avistado/criar-cachorro-avistado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro/usuario', component: CriarUsuarioComponent },
-  { path: 'cadastro/cachorro/:tipo', component: CriarCachorroComponent},
+  { path: 'cadastro/cachorro/buscado', component: CriarCachorroComponent},
+  { path: 'cadastro/cachorro/avistado', component: CriarCachorroAvistadoComponent},
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'resultados/:id', component: ResultadosComponent },

@@ -15,6 +15,7 @@ import { HttpClientXsrfModule, provideHttpClient, withFetch } from '@angular/com
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 import { CachorrosComponent } from './pages/cachorros/cachorros.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
+import { CriarCachorroAvistadoComponent } from './pages/criar-cachorro-avistado/criar-cachorro-avistado.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SobreComponent } from './pages/sobre/sobre.component';
     DashboardComponent,
     ResultadosComponent,
     CachorrosComponent,
-    SobreComponent
+    SobreComponent,
+    CriarCachorroAvistadoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, first } from 'rxjs';
+import { Observable, first, throwError, catchError, map } from 'rxjs';
 import { Usuario } from '../interfaces/usuario.interface';
 
 @Injectable({
@@ -22,6 +22,15 @@ export class UsuarioService {
 
   insertUser(usuario: Usuario): Observable<any> {
     return this.http.post<Usuario>(`${this.apiUrl}/`, usuario)
+  }
+
+  insertUserAvistado(user: any) {
+    return this.http.post<any>('/api/usuario/adicionar', user).pipe(
+      catchError((error: any) => {
+        console.error('Erro na requisição criar usuário avistado:', error);
+        return throwError(error);
+      })
+    );
   }
 
 }

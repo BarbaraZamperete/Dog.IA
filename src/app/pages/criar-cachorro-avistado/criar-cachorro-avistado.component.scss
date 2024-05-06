@@ -1,0 +1,71 @@
+@import '../../../assets/color.scss';
+
+.card {
+  width: calc(100vw - 4rem);
+  max-width: 500px;
+  min-width: 290px;
+
+  .titulo {
+    margin: 0px 0 30px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      button {
+        align-self: flex-end;
+      }
+
+      .file-input-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 15px 0 10px 0;
+        padding-bottom: 5px;
+
+        .file-label {
+          flex-grow: 1;
+          /* Expande para ocupar o espaço restante */
+          color: #444444;
+          font-size: 20px;
+        }
+
+        .file-name {
+          margin: 0 10px;
+          /* Margem para separar do botão */
+        }
+
+        .custom-button {
+          margin-left: auto;
+          /* Alinha o botão à direita */
+          background-color: #554596;
+          color: white;
+          height: 40px;
+          width: 40px;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+        }
+      }
+
+      .text-area{
+        resize: none;
+      }
+
+    }
+  }
+
+}
