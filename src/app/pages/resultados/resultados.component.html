@@ -12,13 +12,21 @@
       </mat-card-header>
       <mat-card-content class="content">
         <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
-          <h4  class="descricao">Esses são os 10 melhores resultados encontrados.</h4>
-          <h4 *ngIf="cachorroIdTipo!=1" class="descricao">Caso acredite que um deles seja o cachorro pesquisado, não deixe de entrar em contato!</h4>
-          <div class="container-cachorro">
-            <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'"
-              [botaoNome]="'Contactar'"></app-card-cachorro>
-          </div>
+          <ng-container *ngIf="combinacoes.lengh > 0; else semCombinacoes">
+            <h4  class="descricao">Esses são os 10 melhores resultados encontrados.</h4>
+            <h4  class="descricao">Caso acredite que um deles seja o cachorro pesquisado, não deixe de entrar em contato!</h4>
+            <div class="container-cachorro">
+              <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'"
+                [botaoNome]="'Contactar'"></app-card-cachorro>
+            </div>
+          </ng-container>
+
+          <ng-template #semCombinacoes>
+            <h4  class="descricao">Não há combinações no momento, aguarde mais cachorros serem cadastrados</h4>
+          </ng-template>
         </section>
+
+
 
       </mat-card-content>
     </mat-card>
