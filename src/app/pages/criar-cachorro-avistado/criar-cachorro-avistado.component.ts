@@ -80,7 +80,8 @@ export class CriarCachorroAvistadoComponent {
             nome: '',
             raca: +this.cachorroForm.get('raca')?.value || 1,
             genero: +this.cachorroForm.get('genero')?.value || 1,
-            usuario: res.id,
+            usuario_avista: res.id,
+            usuario: null,
             tipo: 2,
             descricao: this.cachorroForm.get('descricao')?.value || ''
           }
@@ -93,9 +94,9 @@ export class CriarCachorroAvistadoComponent {
     } else {
       this.openSnackBar("Formulário inválido ou arquivo não selecionado", "info")
     }
-  }
+  };
 
-  createCachorro(cachorroObj: Cachorro): void {
+  createCachorro(cachorroObj: any): void {
     this.loading = true
     this.cachorroService.createCachorro(cachorroObj, this.file).subscribe(
       (response: any) => {

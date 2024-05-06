@@ -13,7 +13,7 @@ export class CachorroService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  createCachorro(cachorroData: Cachorro, imagem: File) {
+  createCachorro(cachorroData: any, imagem: File) {
     const token = this.authService.getToken()
     const headers = new HttpHeaders({ 'Authorization': `Token ${token}` });
     return this.http.post(`${this.apiUrl}/cachorros/adicionar/`, cachorroData, {headers}).pipe(
