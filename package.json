@@ -2,9 +2,10 @@
   "name": "dog.ia",
   "version": "0.0.0",
   "scripts": {
+    "start": "ng serve",
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.js --host 0.0.0.0",
-    "build": "ng build",
+    "dev": "ng serve --proxy-config proxy.config.js --host 0.0.0.0",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Dog.IA": "node dist/dog.ia/server/server.mjs"

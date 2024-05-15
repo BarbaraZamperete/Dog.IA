@@ -8,7 +8,7 @@ import { Usuario } from '../interfaces/usuario.interface';
 })
 export class UsuarioService {
 
-  private apiUrl = '/api-user/usuarios'
+  private apiUrl = 'http://34.28.233.41:8000/api-user/usuarios'
 
   constructor(private http: HttpClient) { }
 

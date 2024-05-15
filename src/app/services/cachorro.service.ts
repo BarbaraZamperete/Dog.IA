@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class CachorroService {
 
-  private apiUrl = '/api'
+  private apiUrl = 'http://34.28.233.41:8000/api'
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
