@@ -12,7 +12,7 @@
       </mat-card-header>
       <mat-card-content class="content">
         <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
-          <ng-container *ngIf="combinacoes.lengh > 0; else semCombinacoes">
+          <ng-container>
             <h4  class="descricao">Esses são os 10 melhores resultados encontrados.</h4>
             <h4  class="descricao">Caso acredite que um deles seja o cachorro pesquisado, não deixe de entrar em contato!</h4>
             <div class="container-cachorro">

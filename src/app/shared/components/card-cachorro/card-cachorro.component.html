@@ -25,8 +25,11 @@
         <li>{{cachorro.descricao}}</li>
       </ul>
     </mat-card-content>
-    <mat-card-actions align="end">
-      <button (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
+    <mat-card-actions class="action">
+      <button class="action-button" (click)="onAction(cachorro.id, cachorro)" mat-flat-button>
+        {{botaoNome}}
+        <span class="material-symbols-outlined">search</span>
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
@@ -53,8 +56,8 @@
       </mat-card-content>
     </ng-container>
 
-    <mat-card-actions align="end">
-      <button (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
+    <mat-card-actions class="action contactar">
+      <button class="action-button" (click)="onAction(cachorro.id, cachorro)" mat-flat-button>{{botaoNome}}</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -26,12 +26,35 @@
         border-radius: 100px;
         cursor: default;
 
-        &.encontrado{
+        &.encontrado {
           cursor: pointer;
           color: $dark-gray;
         }
 
 
+      }
+    }
+
+    .action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .action.contactar{
+      justify-content: flex-end;
+    }
+
+    .action .action-button {
+      display: flex;
+      align-items: center;
+      background-color: $main-purple;
+      color: $dark-white;
+
+      .material-symbols-outlined {
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 8px;
       }
     }
 
@@ -48,11 +71,6 @@
       img {
         max-height: 100%;
       }
-    }
-
-    .mat-card-action .botton-card {
-      background-color: $main-blue;
-      color: $dark-white;
     }
 
     .nome {
