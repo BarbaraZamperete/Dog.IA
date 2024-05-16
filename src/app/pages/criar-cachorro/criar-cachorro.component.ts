@@ -103,7 +103,7 @@ export class CriarCachorroComponent {
           queryParams: { id: this.usuario }
         };
         this.openSnackBar("Cachorro adicionado com sucesso", "success")
-        this.tipo == 'buscado' ? this.router.navigate(['/dashboard'], param) : this.router.navigate([`/resultados/${id}`]);
+        this.router.navigate([`/resultados/${id}`]);
       },
       (error) => {
         this.openSnackBar("Erro no servidor ao criar cachorro", "warn")
