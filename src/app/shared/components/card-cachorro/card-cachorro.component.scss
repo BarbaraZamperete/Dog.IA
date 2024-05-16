@@ -33,6 +33,20 @@
 
 
       }
+      .posicao{
+        width: 30px;
+        border-radius: 30px;
+        text-align: center;
+        background-color: $white-gray;
+        font-weight: 600;
+      }
+
+      .primeiros{
+        background-color: $success;
+      }
+      .ultimos{
+        background-color: $warn;
+      }
     }
 
     .action {
