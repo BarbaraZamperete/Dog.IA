@@ -102,3 +102,22 @@
 
   }
 }
+
+
+@media screen and (max-width: 425px){
+
+  .container-cachorro .cachorro{
+
+    .header-card .posicao{
+      padding-left: 12px;
+      padding-right: 12px;
+      font-size: 16px;
+    }
+    // width: 200px;
+
+    .imagem-box{
+      height: 150px;
+    }
+  }
+
+}

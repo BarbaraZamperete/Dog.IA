@@ -14,7 +14,6 @@
         <section *ngIf="combinacoes$ | async as combinacoes" class="cachorros-lista">
           <ng-container>
             <h4  class="descricao">Esses são os 10 melhores resultados encontrados.</h4>
-            <h4  class="descricao">Caso acredite que um deles seja o cachorro pesquisado, não deixe de entrar em contato!</h4>
             <div class="container-cachorro">
               <app-card-cachorro [tipo]="cachorroIdTipo" [cachorros]="combinacoes" [acao]="'contactar'"
                 [botaoNome]="'Contactar'"></app-card-cachorro>
