@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   login(username: string, senha: string): Observable<any> {
-    return this.http.post<any>(`http://34.28.233.41:8000/api-user-login/`, { username: username, password: senha }).pipe(
+    return this.http.post<any>(`/api-user-login/`, { username: username, password: senha }).pipe(
       map(response => {
         if (response && response.token) {
           this.setCredentials(response.token, response.username, response.id)
