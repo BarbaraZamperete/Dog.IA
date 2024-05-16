@@ -116,3 +116,12 @@ body {
   border-color: $white-gray !important;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2) !important; /* Aumenta a sombra */
 }
+
+
+@media screen and (max-width: 425px){
+
+  .main-container{
+    margin-top: 15px;
+  }
+
+}
