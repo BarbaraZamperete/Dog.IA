@@ -34,7 +34,7 @@ export class DialogComponent {
   openWhatsApp() {
     const phoneNumber = this.data.telefone;
     const message = 'Olá, gostaria de falar sobre o cachorro.';
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/+55${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   }
 
   openSnackBar(mesage:string, tipo:string) {
