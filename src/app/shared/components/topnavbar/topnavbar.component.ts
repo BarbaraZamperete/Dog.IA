@@ -1,5 +1,5 @@
 import { Component, Input, AfterViewChecked, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService } from '../../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -38,7 +38,16 @@ export class TopnavbarComponent{
   }
 
   onNavTo(path: string) {
-    this.router.navigate([path])
+    if (path == "/dashboard") {
+      let user = this.auth.getUserId()
+      let param: NavigationExtras = {
+        queryParams: { id: user }
+      };
+      this.router.navigate([path], param)
+    }else{
+      this.router.navigate([path])
+    }
+    
   }
 
   onLogout(){

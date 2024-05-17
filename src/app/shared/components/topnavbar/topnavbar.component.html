@@ -1,6 +1,6 @@
 <section class="header">
   <mat-toolbar class="topnavbar" color="primary">
-    <a *ngIf="logo" href=""><img src="assets/images/dogai.png" alt="Logo" class="logo"></a>
+    <a *ngIf="logo" href=""><img src="/assets/images/dogai.png" alt="Logo" class="logo"></a>
     <span class="spacer"></span>
     <button *ngIf="!home" mat-button (click)="onBack()" class="nav-button menu voltar">
       <span class="material-symbols-outlined">navigate_before</span>
@@ -9,6 +9,8 @@
     <div class="desk-menu">
       <button mat-button (click)="onNavTo('/sobre')" class="nav-button menu custom-text-color">Sobre</button>
       <button mat-button (click)="onNavTo('/cachorros')" class="nav-button menu custom-text-color">Cachorros</button>
+      <button *ngIf="logado" mat-button (click)="onNavTo('/dashboard')"
+        class="nav-button menu custom-text-color">Meus cachorros</button>
       <button *ngIf="!logado; else menuLogado" mat-button (click)="onNavTo('/login')"
         class="nav-button menu custom-text-color">Entrar</button>
     </div>
@@ -20,6 +22,8 @@
         <button mat-menu-item (click)="onNavTo('/sobre')" class="nav-button menu custom-text-color">Sobre</button>
         <button mat-menu-item (click)="onNavTo('/cachorros')"
           class="nav-button menu custom-text-color">Cachorros</button>
+        <button *ngIf="logado" mat-button (click)="onNavTo('/dashboard')"
+        class="nav-button menu custom-text-color">Meus cachorros</button>
         <button *ngIf="!logado; else menuLogado" mat-menu-item (click)="onNavTo('/login')"
           class="nav-button menu custom-text-color">Entrar</button>
       </mat-menu>
