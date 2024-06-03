@@ -42,7 +42,7 @@ export class CriarCachorroComponent {
 
     this.cachorroForm = this.fb.group({
       nome: ['', Validators.required],
-      raca: ['', Validators.required],
+      // raca: ['', Validators.required],
       genero: ['', Validators.required],
       descricao: ['']
     });

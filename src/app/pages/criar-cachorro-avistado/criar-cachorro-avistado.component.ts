@@ -40,7 +40,7 @@ export class CriarCachorroAvistadoComponent {
   ngOnInit() {
 
     this.cachorroForm = this.fb.group({
-      raca: ['', Validators.required],
+      // raca: ['', Validators.required],
       contato: ['', Validators.required],
       nome: [''],
       genero: ['', Validators.required],

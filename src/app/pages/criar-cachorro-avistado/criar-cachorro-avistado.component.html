@@ -33,15 +33,15 @@
               <input matInput formControlName="nome" placeholder="Seu nome">
             </mat-form-field>
 
-            <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
+            <!-- <mat-form-field *ngIf="racas$ | async as racas" appearance="outline">
               <mat-label>Raça</mat-label>
               <mat-select matInput formControlName="raca" placeholder="Raça">
                 <mat-option *ngFor="let raca of racas" [value]="raca.id">{{raca.nome}}</mat-option>
               </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <div class="file-input-container">
-              <mat-label class="file-label">Gênero: </mat-label>
+              <mat-label class="file-label">Gênero do cachorro: </mat-label>
               <mat-radio-group formControlName="genero">
                 <mat-radio-button value="1">Macho</mat-radio-button>
                 <mat-radio-button value="2">Fêmea</mat-radio-button>
