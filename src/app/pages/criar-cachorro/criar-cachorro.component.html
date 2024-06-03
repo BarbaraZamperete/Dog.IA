@@ -24,6 +24,13 @@
                 <span class="material-symbols-outlined">image</span>
               </button>
             </div>
+            <div *ngIf="imagePreview" class="image-preview-box">
+              <button mat-icon-button (click)="removeImage()" *ngIf="selectedFileName" tabindex="-1">
+                <span class="material-symbols-outlined">clear</span>
+              </button>
+              <img [src]="imagePreview" alt="Pré-visualização da imagem" class="image-preview">
+              <p>Escolha uma imagem que só tenha o cão a ser cadastrado, certifique-se que a imagem contém o rosto do animal</p>
+            </div>
             <mat-form-field appearance="outline">
               <mat-label>Nome do Cachorro</mat-label>
               <input matInput formControlName="nome" placeholder="Nome do Cachorro">

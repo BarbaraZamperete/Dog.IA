@@ -24,6 +24,7 @@ export class CriarCachorroComponent {
   tipo: string
   usuario: number = 1
   loading: boolean = false;
+  imagePreview: string | ArrayBuffer | null;
 
   constructor(
     private fb: FormBuilder,
@@ -63,9 +64,18 @@ export class CriarCachorroComponent {
     if (input && input.files && input.files.length > 0) {
       this.file = input.files[0];
       this.selectedFileName = this.file.name;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+      reader.readAsDataURL(this.file);
     } else {
       this.selectedFileName = null;
     }
+  }
+  removeImage() {
+    this.selectedFileName = '';
+    this.imagePreview = '';
   }
 
   onSubmit() {

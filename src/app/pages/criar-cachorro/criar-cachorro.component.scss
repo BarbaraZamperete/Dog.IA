@@ -27,6 +27,32 @@
         align-self: flex-end;
       }
 
+      .image-preview-box {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $white-gray;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+
+        .image-preview {
+          margin: auto;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          max-width: 100%;
+          max-height: 200px;
+        }
+
+        p {
+          text-align: center;
+          font-size: small;
+          color: $dark-gray;
+        }
+      }
+
       .file-input-container {
         width: 100%;
         display: flex;
@@ -61,7 +87,7 @@
         }
       }
 
-      .text-area{
+      .text-area {
         resize: none;
       }
 
