@@ -88,7 +88,6 @@ export class CriarCachorroAvistadoComponent {
           console.log('Resposta:', res);
           const cachorroObj = {
             nome: '',
-            raca: +this.cachorroForm.get('raca')?.value || 1,
             genero: +this.cachorroForm.get('genero')?.value || 1,
             usuario_avista: res.id,
             usuario: null,

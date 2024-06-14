@@ -85,7 +85,8 @@ export class CriarCachorroComponent {
     if (this.cachorroForm.valid && this.file) {
       const cachorroObj = {
         nome: this.cachorroForm.get('nome')?.value || '',
-        raca: +this.cachorroForm.get('raca')?.value || 1,
+        // raca: 0,
+        // raca_certeza: 0,
         genero: +this.cachorroForm.get('genero')?.value || 1,
         usuario: this.usuario,
         tipo: 1,
